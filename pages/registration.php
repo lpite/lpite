@@ -1,6 +1,4 @@
 <?php
-include "../includes/include.php";
-require_once "../includes/rb.php";
 $data = $_POST;
 
 
@@ -42,12 +40,12 @@ if (isset($data['signup'])) {
 
 <head>
 	<title><?php echo ($name_page['singup']) ?></title>
-	<?php include "../includes/head.php" ?>
+	<?php include "includes/head.php" ?>
 </head>
 
 <body>
 	<div class="container">
-		<?php include "../includes/header.php" ?>
+		<?php include "includes/header.php" ?>
 
 		<main>
 			<div class="name-page-div"><span class="name-page"><?php echo ($name_page['singup']) ?></span></div>
@@ -106,8 +104,8 @@ if (isset($data['signup'])) {
 						<div class="category-margin"></div>
 
 						</div>
-						<button class="tovar-buy-button" name="signup" type="submit"><?php echo ($name_page['singup']) ?></button>
-						<span><a href="login.php">Уже есть аккаунт?</a></span>
+						<button class="tovar-buy-button button" name="signup" type="submit"><?php echo ($name_page['singup']) ?></button>
+						<span><a href="/login/">Уже есть аккаунт?</a></span>
 					</div>
 
 					<div class="category-margin"></div>
@@ -127,7 +125,7 @@ if (isset($data['signup'])) {
 
 		</main>
 		<footer>
-			<?php include "../includes/footer.php" ?>
+			<?php include "includes/footer.php" ?>
 		</footer>
 
 	</div>

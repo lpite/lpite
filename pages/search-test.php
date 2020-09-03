@@ -1,5 +1,4 @@
 <?php
-require '../includes/include.php';
 
 $a = 2;
 
@@ -61,39 +60,45 @@ if (isset($_POST['select']) ? $_POST['select'] : 0) {
 <html>
 <head>
     <title>Поиск</title>
-    <?php include "../includes/head.php" ?>
+    <?php include "includes/head.php" ?>
 </head>
 
 <body>
     <div class="container">
         <?php
-        include "../includes/header.php";
+        include "includes/header.php";
         ?>
         <main>
 
             <div class="name-page-div"><span class="name-page">Поиск</span></div>
             <div class="sort-div">
-                <?php sort_div(); ?>
+                <?php 
+                if (!empty($products)) {
+                    sort_div();
+                } ?>
   
             </div>
             <?php
 
-            buttons();
+            
             if (empty($products)) {
-                echo "ничего не найдено";
+                echo "Ничего не найдено";
             } else {
+                buttons();  
                 foreach ($products as  $product) {
 
-                    include "../includes/product-div.php";
+                    include "includes/product-div.php";
                 }
+
+
+            buttons();
             }
 
 
-            buttons();
             ?>
         </main>
         <footer>
-            <?php include "../includes/footer.php" ?>
+            <?php include "includes/footer.php" ?>
             <script type="text/javascript">
                 set_sort();
                 set_pdonpg();

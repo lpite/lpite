@@ -1,17 +1,37 @@
-var cart = {}; //моя корзина
+let cart = {}; //моя корзина
+const cart_input = document.querySelectorAll(".cart-input");
+const buy_btn = document.querySelectorAll(".buy-btn");
+const cart_delete = document.querySelectorAll('.cart-delete');
+const select = document.querySelectorAll('.select');
+const full_price_out = document.querySelector('.full-price');
+const payment_radio_div = document.querySelectorAll('.payment-radio-div');
+const sort = document.querySelector('.Sort');
+const products_on_page = document.querySelector('.products-on-page');
+const header_popup = document.getElementById("header-popup");
+const search_div = document.getElementById("search-div");
+const sticky = search_div.offsetTop;
+const orders = document.querySelectorAll('.order-table');
 
+checkCart();
+showMiniCart();
+fullprice();
+    
+window.onscroll = function () {
+  myFunction()
+};
 
-$('document').ready(function () {
-
-    checkCart();
+cart_input && 
+Array.from(cart_input).forEach(link => {
+    link.addEventListener('change', function() {
+    const articul = this.getAttribute('data-id');
+    c = document.getElementById(articul).value / 1;
+    cart[articul] = c;
+    save_cart();
     showMiniCart();
     fullprice();
-    
-
-    window.onscroll = function () {
-        myFunction()
-    };
+    });
 });
+
 
 function checkCart() {
     try {
@@ -37,9 +57,8 @@ function addToCart() {
 
     //добавляем товар в корзину
 
-    var articul = $(this).attr('data-id');
-    let check = document.getElementById(articul);
-
+    const articul = this.getAttribute('data-id');
+    const check = document.getElementById(articul);
     if (check.classList.contains('hidden')) {
         var text = document.getElementById(articul + '.1').value / 1;
     } else {
@@ -67,7 +86,9 @@ function showMiniCart() {
     for (var w in cart) {
         cart_count += cart[w];
     }
-    $('.mini-cart').html(cart_count);
+    const mini_cart = document.querySelector('.mini-cart');
+    mini_cart &&  mini_cart
+    mini_cart.innerHTML = cart_count;
 }
 
 function set_sort() {
@@ -107,18 +128,35 @@ function set_pdonpg() {
 }
 
 
-$('.buy-btn').on('click', addToCart);
-$('.cart-input').on('change', function () {
-    var articul = $(this).attr('data-id');
-    c = document.getElementById(articul).value / 1;
-    cart[articul] = c;
+
+buy_btn && 
+Array.from(buy_btn).forEach(link => {
+    link.addEventListener('click', function() { 
+    let articul = this.getAttribute('data-id');
+    let check = document.getElementById(articul);
+    if (check.classList.contains('hidden')) {
+        var text = document.getElementById(articul + '.1').value / 1;
+    } else {
+        var text = document.getElementById(articul).value / 1;
+    }
+
+    if (cart[articul] != undefined) {
+        cart[articul] += text;
+    } else {
+        cart[articul] = text;
+    }
+
     save_cart();
     showMiniCart();
-    fullprice();
+
+    });
 });
 
-$('.cart-delete').on('click', function () {
-    var articul = $(this).attr('data-id');
+
+cart_delete &&
+Array.from(cart_delete).forEach(link => {
+ link.addEventListener('click',function(){
+ var articul = this.getAttribute('data-id');
     delete cart[articul];
     var cart_div = document.getElementById(articul + '.1');
     cart_div.classList.add("hidden");
@@ -126,69 +164,87 @@ $('.cart-delete').on('click', function () {
     save_cart();
     showMiniCart();
     fullprice();
+ });
 });
-$('.tovar-select').on('change', function () {
-    var articul = $(this).attr('id');
-    var value = document.getElementById(articul).value;
-    if (value == '...') {
-        document.getElementById(articul).classList.add('hidden');
-        document.getElementById(articul + '.1').classList.remove('hidden');
-    }
-});
-$('.page-tovar-select').on('change', function () {
-    var articul = $(this).attr('id');
-    var value = document.getElementById(articul).value;
-    console.log(value);
-    if (value == '...') {
-        document.getElementById(articul).classList.add('hidden');
-        document.getElementById(articul + '.1').classList.remove('hidden');
-    }
 
+
+select && 
+
+Array.from(select).forEach(link => {
+
+    link.addEventListener('change', function(){
+
+      let articul = this.getAttribute('id');
+    let value = document.getElementById(articul).value;
+    if (value == '...') {
+
+        document.getElementById(articul).classList.add('hidden');
+        document.getElementById(articul + '.1').classList.remove('hidden');
+
+    }
+    });
 });
+
+
 
 function fullprice() {
     let full_price = 0;
+    let price;
+    let available;
     for (var w in cart) {
         let x = document.getElementById(w + '.2');
-        let price = $(x).attr('data-price');
-        let available = $(x).attr('data-available');
+        if (x) {
+        price = x.getAttribute('data-price');
+        available = x.getAttribute('data-available');
         if (available >= 1) {
 
             full_price += price * cart[w];
         }
+      
+      }
 
 
 
 
     }
-      
-        $('.full-price').html(full_price);
+   
+   if (full_price_out && full_price != 0) {
+
+        full_price_out.innerHTML = full_price;
+   }
+   
 }
 
-$('.Sort').on('change', function () {
-    let sort_value = document.getElementById('select').value;
+
+sort && 
+sort.addEventListener('change',function(){
+let sort_value = document.getElementById('select').value;
     document.getElementById('btn').click();
     document.cookie = "sort= " + sort_value + "; expires=01 Jan 2021 00:00:00 UTC;path=/";
 });
 
-$('.products-on-page').on('change', function () {
+
+
+products_on_page &&
+products_on_page.addEventListener('change',function(){
     let pdonpg_value = document.getElementById('products-on-page').value;
     document.getElementById('products-on-page-button').click();
     document.cookie = "pdonpg= " + pdonpg_value + "; expires=01 Jan 2021 00:00:00 UTC;path=/";
 });
 
-$('.payment-radio-div').on('click', function () {
-    var id = $(this).attr('id');
+
+
+payment_radio_div &&
+Array.from(payment_radio_div).forEach(link => {
+    link.addEventListener('click' ,function(){
+  const id = link.getAttribute('id');
     document.getElementById(id + '.1').click();
-});
+    });
+ 
 
-const header_popup = document.getElementById("header-popup");
-const search_div = document.getElementById("search-div");
-
-
+    });
 
 
-const sticky = search_div.offsetTop;
 
 function myFunction() {
     if (window.pageYOffset > sticky) {
@@ -200,3 +256,14 @@ function myFunction() {
     }
 
 }
+
+orders &&
+Array.from(orders).forEach(link => {
+    link.addEventListener('click' ,function(){
+  const id = link.getAttribute('id');
+  document.getElementById(id+'.1').classList.toggle('hidden');
+    });
+ 
+
+    });
+

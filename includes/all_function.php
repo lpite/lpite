@@ -11,15 +11,20 @@ if ( $id_page <= 1) {
 }else{
 
 ?>
-<div class="button-footer"><a href="<?php echo $buttons[$a]?> ?id=<?php echo 1?>&category=<?php echo $category ?>"><span>&laquo</span></a></div>
-<div class="button-footer"><a href="<?php echo $buttons[$a]?>?id=<?php echo $id_page-1?>&category=<?php echo $category ?>">Предыдущая</a></div>
+<div class="button-footer"><a href="&id=1"><span>&laquo</span></a></div>
+<div class="button-footer"><a href="&id=<?php echo $id_page-1?>">Предыдущая</a></div>
 <?php
 
 }
+$i = 0;
+while ($count_pages != $i) {
+  $i++;
+  echo '<div class="button-footer"><a href="&id='.$i.'">'.$i.'</a></div>';
+}
 if ( $count_pages != $id_page) {
 ?>
-<div class="button-footer"><a href="<?php echo $buttons[$a]?>?id=<?php echo $id_page+1?>&category=<?php echo $category ?>">Следующая</a></div>
-<div class="button-footer"><a href="<?php echo $buttons[$a]?>?id=<?php echo $count_pages?>&category=<?php echo $category ?>">&raquo</a></div>
+<div class="button-footer"><a href="&id=<?php echo $id_page+1?>">Следующая</a></div>
+<div class="button-footer"><a href="&id=<?php echo $count_pages?>">&raquo</a></div>
 <?php
 
 }
@@ -35,16 +40,26 @@ function cart_div(){
     <div class="tovar-div" id="<?php echo $product['id'].'.1' ?>">
   <div class="tovar-text">
     <div class="tovar-img-div" >
-        <a href="product.php?id=<?php echo $product['id']  ?>">
-      <img  alt='<?php echo $product["name"] ?>' class="tovar-img" src="../img/<?php
+        <a href="/product/&id=<?php echo $product['id']  ?>">
+             <picture   >
+          <source srcset="/img/<?php
 
-if (empty($product['picture'])) {
-  echo ('test.jpg');
-}
-echo $product['picture'] ?>">
+                                if (empty($product['picture'])) {
+                                  echo ('no-pic.jpg');
+                                }
+                                echo $product['picture'] 
+                                ?>
+                                "type="image/webp">
+                               <img alt='<?php echo $product['name'] ?>'class="tovar-img" src="/img/<?php
+
+                                if (empty($product['picture'])) {
+                                  echo ('no-pic.jpg');
+                                }
+                                echo $product['picture'] ?>">
+        </picture>
     </a>
   </div>
- <a href="product.php?id=<?php echo $product['id']  ?>">
+ <a href="/product/&id=<?php echo $product['id']  ?>">
      <span class="tovar-name"><?php echo  $product['name'];?></span></a><br>
    
    <div class="category-margin"></div>
@@ -74,7 +89,7 @@ if ($product['dostupnost'] >=1 ) {
       class="" 
       value="<?php echo($value);?>" name="">
       <div class="category-margin"></div>
-       <button class="cart-delete" data-id="<?php echo($product['id']);?>" >x</button>
+       <button class="cart-delete button" data-id="<?php echo($product['id']);?>" >x</button>
       
        
  
@@ -112,7 +127,7 @@ function search_div(){
 function sort_div(){
   ?>
  <form action='' method='post' name="select" data-settings='{"wrapperClass":"metro"}' id="select1" >
-            <select class="Sort" name="select"  id="select">
+            <select class="Sort sort-input" name="select"  id="select">
                 <option value='a_z'>по названию А-Я</option>
                 <option value='z_a'>по названию Я-А</option>
                 <option  value='priceMax'>по убыванию цены</option>
@@ -122,7 +137,7 @@ function sort_div(){
             <input class="hidden" type='submit' id="btn" name='submitSort' >
         </form>
     <form action="" name="" method="post"> 
-    <select id="products-on-page" class="products-on-page" name="products-on-page">
+    <select id="products-on-page" class="products-on-page sort-input " name="products-on-page">
                 <option value="15">15</option>
                 <option value="30">30</option>
                 <option value="50">50</option>

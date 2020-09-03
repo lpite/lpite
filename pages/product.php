@@ -1,12 +1,11 @@
 <?php
 
-require '../includes/include.php';
-require_once '../includes/rb.php';
 if (!isset($_GET['id'])) {
     $id_page = 1;
 } else {
     $id_page = $_GET['id'];
 }
+
 $products = R::find('tovar', '`id`= ? ', array($id_page));
 foreach ($products as  $product) {
 }
@@ -22,13 +21,13 @@ foreach ($products as  $product) {
                 echo $product['name'];
             }
             ?></title>
-    <?php include "../includes/head.php" ?>
+    <?php include($__ROOT__."includes/head.php") ?>
 </head>
 
 <body>
     <div class="container">
         <?php
-        include "../includes/header.php";
+        include($__ROOT__."includes/header.php")
         ?>
         <main>
 
@@ -36,7 +35,7 @@ foreach ($products as  $product) {
 
             if (empty($products)) {
             ?>
-                <div class="name-page-div"><span class="name-page">ничего не найдено</span></div>
+                <div class="name-page-div"><span>ничего не найдено</span></div>
             <?php
                 echo "ничего не найдено";
             } else {
@@ -44,19 +43,28 @@ foreach ($products as  $product) {
             ?>
 
                 <div class="name-page-div"><span class="name-page"><?php echo $product['name']; ?></span></div>
-                <div class="page-tovar-img-div" id="page-tovar-img-div"><img class="page-tovar-img" src="../img/<?php
-                                                                                                                if (empty($product['picture'])) {
-                                                                                                                    echo ('test.jpg');
-                                                                                                                } else {
-                                                                                                                    echo  $product['picture'];
-                                                                                                                }
-                                                                                                                ?>"></div>
+                <div class="page-tovar-img-div" id="page-tovar-img-div">
+                   <picture  class="page-tovar-img-div" >
+          <source srcset="../img/<?php
+
+                                if (empty($product['picture'])) {
+                                  echo ('no-pic.jpg');
+                                }
+                                echo $product['picture'] ?>"type="image/webp">
+                               <img alt='<?php echo $product['name'] ?>'class="page-tovar-img" src="../img/<?php
+
+                                if (empty($product['picture'])) {
+                                  echo ('no-pic.jpg');
+                                }
+                                echo $product['picture'] ?>">
+        </picture>
+                  </div>
                 <div class="page-tovar-button-price-div">
                     <div class="page-tovar-price-div"><span class="page-tovar-price">Цена: <?php echo  $product['price']; ?>грн</span>
                         <div class="page-tovar-buy-button-div">
                             <input data-id="<?php echo  $product['id']; ?>" type="submit" name="" class="page-tovar-buy-button buy-btn" value="Купить">
 
-                            <select id="<?php echo $product['id']; ?>" class="page-tovar-select">
+                            <select id="<?php echo $product['id']; ?>" class="page-tovar-select select">
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
@@ -90,7 +98,7 @@ foreach ($products as  $product) {
             ?>
         </main>
         <footer>
-            <?php include "../includes/footer.php" ?>
+            <?php include "includes/footer.php" ?>
         </footer>
     </div>
 
