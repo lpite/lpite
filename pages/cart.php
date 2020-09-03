@@ -40,7 +40,7 @@ foreach ($products as $product ) {
 }
    
 }
-echo $full_price;
+
 ?>
  <div> <span>Итого </span><span class="full-price"></span> грн
   
