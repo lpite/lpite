@@ -1,6 +1,5 @@
 <?php
 
-// unset($_SESSION['test']);
 ?>
 
 <!DOCTYPE html>

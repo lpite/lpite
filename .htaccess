@@ -2,10 +2,7 @@ RewriteEngine On
 RewriteBase /
 RewriteRule ^index\.php$ - [L]
 ErrorDocument 403 /pages/404.php
-Options All -Indexes
+Options All  -Indexes
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-
-
-
 RewriteRule ^(.*)$ index.php?route=$1 [QSA]

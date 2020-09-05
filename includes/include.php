@@ -1,6 +1,6 @@
 <?php
-require_once 'rb.php';
-require_once 'config/config.php';
+require_once($__ROOT__.'rb.php') ;
+require_once($__ROOT__."config/config.php");
 require_once 'all_function.php';
 R::setup('mysql:host=127.0.0.1;dbname=two', 'root', '');
 // R::freeze(true);
