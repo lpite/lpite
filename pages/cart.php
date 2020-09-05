@@ -59,7 +59,7 @@ foreach ($products as $product ) {
          ?>
 
         <div>
-          <form name="email-phone-form" action="/cart/payment"  method="post">
+          <form name="email-phone-form" action="/cart/payment/"  method="post">
             <input type="text" required class="registration-input" name="email_phone" placeholder="Введите почту или телефон">
             <p>Коментарий</p>
             <textarea name="comment" class="cart-comment"></textarea>
@@ -88,30 +88,17 @@ foreach ($products as $product ) {
   ?>
                         <div>
                             <form method="post" action="/cart/delivery/">
-                                <div class="payment-radio-div" id="1">
-
-                                    <input value="1" type="radio" id="1.1" class="payment-radio" name="payment" />
-                                    <img src="../img/test.jpg" class="payment-radio-img">
-                                    <label for="1">1</label>
-                                </div>
-                                <div class="payment-radio-div" id="2">
-
-                                    <input value="2" type="radio" id="2.1" class="payment-radio" name="payment" />
+                              <?php 
+foreach ($payment as $key => $value) {
+  ?>
+                                <div class="payment-radio-div" id="<?php echo($key) ?>">
+                                    <input value="<?php echo($key) ?>" type="radio" id="<?php echo($key) ?>.1" class="payment-radio" name="payment" />
                                     <img src="/img/test.jpg" class="payment-radio-img">
-                                    <label for="2">2</label>
+                                    <label for="<?php echo($key) ?>"><?php echo $value; ?></label>
                                 </div>
-                                <div class="payment-radio-div" id="3">
-
-                                    <input value="3" type="radio" id="3.1" class="payment-radio" name="payment" />
-                                    <img src="/img/test.jpg" class="payment-radio-img">
-                                    <label for="3">3</label>
-                                </div>
-                                <div class="payment-radio-div" id="4">
-
-                                    <input value="4" required type="radio" id="4.1" class="payment-radio" name="payment" />
-                                    <img src="/img/test.jpg" class="payment-radio-img">
-                                    <label for="4">4</label>
-                                </div>
+   <?php 
+}
+                               ?>
                                 <button name="pay" class="tovar-buy-button button" >Далее</button>
 
                             </form>
@@ -124,33 +111,50 @@ foreach ($products as $product ) {
          
             <?php
 }elseif ($route === 'cart/delivery/') {
+
     ?>
                         <div>
+
+
+
                             <form method="post" action="/cart/lastcheck/">
+
+                              <?php 
+
+foreach ($delivery as $key => $value) {
+  ?>
+                                <div class="payment-radio-div" id="<?php echo($key) ?>">
+                                    <input value="<?php echo($key) ?>" type="radio" id="<?php echo($key) ?>.1" class="payment-radio" name="payment" />
+                                    <img src="/img/test.jpg" class="payment-radio-img">
+                                    <label for="<?php echo($key) ?>"><?php echo $value; ?></label>
+                                </div>
+   <?php 
+}
+                               ?>
+                               
+                               <!--  <div class="payment-radio-div" id="0">
+
+                                    <input value="0" type="radio" id="0.1" class="payment-radio" name="delivery" />
+                                    <img src="/img/test.jpg" class="payment-radio-img">
+                                    <label for="0">1</label>
+                                </div>
                                 <div class="payment-radio-div" id="1">
 
                                     <input value="1" type="radio" id="1.1" class="payment-radio" name="delivery" />
                                     <img src="/img/test.jpg" class="payment-radio-img">
-                                    <label for="1">1</label>
+                                    <label for="1">2</label>
                                 </div>
                                 <div class="payment-radio-div" id="2">
-
                                     <input value="2" type="radio" id="2.1" class="payment-radio" name="delivery" />
                                     <img src="/img/test.jpg" class="payment-radio-img">
-                                    <label for="2">2</label>
+                                    <label for="2">3</label>
                                 </div>
                                 <div class="payment-radio-div" id="3">
 
-                                    <input value="3" type="radio" id="3.1" class="payment-radio" name="delivery" />
+                                    <input value="3" required type="radio" id="3.1" class="payment-radio" name="delivery" />
                                     <img src="/img/test.jpg" class="payment-radio-img">
-                                    <label for="3">3</label>
-                                </div>
-                                <div class="payment-radio-div" id="4">
-
-                                    <input value="4" required type="radio" id="4.1" class="payment-radio" name="delivery" />
-                                    <img src="/img/test.jpg" class="payment-radio-img">
-                                    <label for="4">4</label>
-                                </div>
+                                    <label for="3">4</label>
+                                </div> -->
                                 <button name="delivery-btn" class="tovar-buy-button button"><span>Далее</span></button>
 
                             </form>

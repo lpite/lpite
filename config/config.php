@@ -32,10 +32,6 @@ $phones =
 'cart/payment/' => 'pages/cart.php',
 'cart/delivery/' => 'pages/cart.php',
 'cart/lastcheck/' => 'pages/cart.php',
-// 'cart/checkout' => 'pages/cart-checkout1.php',
-// 'cart/payment' => 'pages/cart-payment.php',
-// 'cart/delivery' => 'pages/cart-deliv.php',
-// 'cart/lastcheck' => 'pages/cart-last-check.php',
 'login/' => 'pages/login.php',
 'registration/' => 'pages/registration.php',
 'contacts/' => 'pages/contacts.php',
@@ -45,9 +41,9 @@ $phones =
 
 
  ];
- $delivery = ['','доставка 1','доставка 2' ,'доставка 3', 'доставка 4'];
+ $delivery = ['доставка 1','доставка 2' ,'доставка 3', 'доставка 4'];
  
- $payment = ['','Оплата 1','Оплата 2' ,'Оплата 3', 'Оплата 4'];
+ $payment = ['Оплата 1','Оплата 2' ,'Оплата 3', 'Оплата 4'];
  
 
  ?>
