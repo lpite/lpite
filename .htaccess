@@ -1,8 +1,13 @@
 RewriteEngine On
 RewriteBase /
 RewriteRule ^index\.php$ - [L]
+<<<<<<< Updated upstream
 ErrorDocument 403 /pages/404.php
 Options All  -Indexes
+=======
+
+Options All -Indexes
+>>>>>>> Stashed changes
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?route=$1 [QSA]
