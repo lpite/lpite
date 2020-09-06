@@ -1,4 +1,6 @@
-
+<?php 
+mail('lslkxksoslxlkxkxkx@gmail.com', 'e', 'test');
+ ?>
 <!DOCTYPE html>
 <html>
 <head>

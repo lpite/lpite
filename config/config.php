@@ -36,10 +36,8 @@ $phones =
 'registration/' => 'pages/registration.php',
 'contacts/' => 'pages/contacts.php',
 'sto/' =>'pages/STO.php',
-'product/' => 'pages/product.php'
-
-
-
+'product/' => 'pages/product.php',
+'admin/' => 'admin/admin.php'
  ];
  $delivery = ['доставка 1','доставка 2' ,'доставка 3', 'доставка 4'];
  
