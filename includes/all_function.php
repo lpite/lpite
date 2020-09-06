@@ -82,7 +82,7 @@ if ($product['dostupnost'] >=1 ) {
    <span class="green">Есть в наличии</span>
     <div class="category-margin"></div>
    
-      <input type="number" class="cart-input" 
+      <input type="number" class="cart-input tovar-input" 
       data-id='<?php echo($product['id']) ?>' 
       id="<?php echo($product['id']) ?>" 
       min="1" max="1000" 

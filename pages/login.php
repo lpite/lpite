@@ -98,11 +98,11 @@ $errors[] = "Пароль не верный";
 
 <div style="display: flex; flex-direction: column; align-self: center;">
 		<span>История заказов</span>
-        <span>gecn</span>
+        
 	<?php 
    $orders = R::find('test','id_user = ?',array($_SESSION['log_in']->id)); 
    if (!$orders) {
-        echo "нет"; 
+        echo "Нет заказов"; 
        }    
    foreach ($orders as $order) {
    	?>
@@ -116,7 +116,7 @@ $errors[] = "Пароль не верный";
    		echo 'border-bottom: 2px solid red';
    	}
    	 ?>"> 
-   		<table class="order-table" id="<?php echo $order['id']?>">
+   		<table class="order-table" style="cursor: pointer;" id="<?php echo $order['id']?>">
    			<tr>
    				<td>
    					<span >№ заказа <?php echo $order['id'].' ';  ?> </span>

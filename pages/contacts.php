@@ -23,10 +23,11 @@
         
         <?php foreach ($phones as $phone) {
             ?>
-            <div class="contacts-div">
-                <img src="../img/phone.svg">
+            <p style="text-align: center;"><img src="/img/phone.svg"><?php echo $phone;  ?></p>
+            <!-- <div class="contacts-div">
+                <img src="/img/phone.svg">
                 <?php echo $phone;  ?>
-                </div>
+                </div> -->
                         <?php
         }
 

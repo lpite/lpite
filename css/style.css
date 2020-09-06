@@ -4,9 +4,22 @@
   text-decoration: none;
 
 }
-html body{
-  transition: all 0.2s ease-in-out;
-}
+
+body { 
+    animation: fadeInAnimation ease 3s 
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards; 
+} 
+  
+@keyframes fadeInAnimation { 
+    0% { 
+        opacity: 0; 
+    } 
+    100% { 
+        opacity: 1; 
+     } 
+} 
+
 :root {
   --shadow: 1px 2px 5px 0px #958585;
   --main-color: rgb(57, 156, 255);
@@ -308,18 +321,17 @@ input {
 }
 
 .sort-input {
-   border: 3px solid var(--main-color);
+   border: 2px solid var(--main-color);
   margin: 0 0 0 5px;
   height: 30px;
   font-size: 15px;
   cursor: pointer;
   transition: 0.2s ease-in-out;
+  border-radius: 5px;
+  padding: 2px;
+
 }
 
-.sort-input:hover {
-  box-shadow: var(--shadow);
-  transition: 0.2s ease-in-out;
-}
 
 .container {
   width: 1200px;
@@ -527,11 +539,7 @@ input {
   height: 28px;
   font-size: 21px;
   transition: 0.3s ease-in-out;
-}
-
-.tovar-select:hover {
-  box-shadow: var(--shadow);
-  transition: 0.3s ease-in-out;
+  border-radius: 5px;
 }
 
 .tovar-input {
@@ -542,6 +550,7 @@ input {
   height: 30.3px;
   padding: 0;
   font-size: 22px;
+  border-radius: 5px;
 }
 
 .burger {
@@ -637,18 +646,14 @@ input {
   transition: 0.4s ease-in-out;
   font-size: 16px;
   cursor: pointer;
+   border-radius: 5px 0 0 5px;
 }
 
 .page-tovar-buy-button:hover {
   background: var(--main-color);
   transition: 0.2s ease-in-out;
-  border-radius: 18px 0 0 18px;
-  box-shadow: var(--shadow);
 }
-.page-tovar-buy-button:active{
- transform: translateY(1px);
-  box-shadow: none;
-}
+
 
 .page-tovar-select {
   transition: 0.2s ease-in-out;
@@ -656,14 +661,13 @@ input {
   font-size: 18px;
   border: 3px solid var(--main-color);
   cursor: pointer;
+  border-radius: 0 5px 5px 0;
 
 }
 
 .page-tovar-select:hover {
-  border-radius: 0 18px 18px 0;
   transition: 0.2s ease-in-out;
   background: var(--main-color);
-  box-shadow: var(--shadow);
 }
 
 .page-tovar-input {
@@ -671,7 +675,6 @@ input {
   font-size: 23px;
   border: 3px solid var(--main-color);
   align-items: center;
-
 }
 
 .page-tovar-price-div {
@@ -731,20 +734,9 @@ input {
   transition: 0.2s ease-in-out;
 }
 
-.cart-div {
-  display: flex;
-  flex-direction: column;
-  align-items: baseline;
-  justify-content: space-around;
-}
-
 .cart-input {
-  background: var(--main-color);
-  border: none;
   height: 27px;
   width: 90px;
-  font-size: 22px;
-  text-align: center;
 }
 
 .cart-delete {
@@ -767,20 +759,20 @@ input {
   justify-content: space-around;
   align-self: center;
   align-items: center;
-  border: 2px solid var(--white-color);
-  transition: 0.2s ease-in-out;
-  width: 400px;
-}
-
-.payment-radio-div:hover {
   border: 2px solid var(--main-color);
   transition: 0.2s ease-in-out;
-  box-shadow: var(--shadow);
+  width: 400px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.payment-radio-div:hover {
+  transition: 0.2s ease-in-out;
+  background: dodgerblue;
+}
+.payment-radio-div img{
+   width: 50px
 }
 
-.payment-radio-img {
-  width: 50px
-}
 .contacts-div{
   display: flex;
   height: 50px;
@@ -788,7 +780,7 @@ input {
   justify-content: center;
 }
 .bottom-border{
-  border-bottom:  2px solid dodgerblue;
+  border-bottom:2px solid dodgerblue;
 }
 
 
