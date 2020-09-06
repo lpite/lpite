@@ -5,31 +5,11 @@
 
 }
 
-body { 
-    animation: fadeInAnimation ease 3s 
-    animation-iteration-count: 1; 
-    animation-fill-mode: forwards; 
-} 
-  
-@keyframes fadeInAnimation { 
-    0% { 
-        opacity: 0; 
-    } 
-    100% { 
-        opacity: 1; 
-     } 
-} 
-
 :root {
   --shadow: 1px 2px 5px 0px #958585;
   --main-color: rgb(57, 156, 255);
   --white-color: white;
 }
-
-/*a:-webkit-any-link {
-  color: rgb(67, 67, 184);
-  cursor: pointer;
-}*/
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
