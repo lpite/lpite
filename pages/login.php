@@ -98,9 +98,12 @@ $errors[] = "Пароль не верный";
 
 <div style="display: flex; flex-direction: column; align-self: center;">
 		<span>История заказов</span>
-
+        <span>gecn</span>
 	<?php 
-   $orders = R::find('test','id_user = ?',array($_SESSION['log_in']->id));     
+   $orders = R::find('test','id_user = ?',array($_SESSION['log_in']->id)); 
+   if (!$orders) {
+        echo "нет"; 
+       }    
    foreach ($orders as $order) {
    	?>
    	<div class="page-tovar-description order-div"  style="margin: 10px; width: 100%;
@@ -200,9 +203,9 @@ $errors[] = "Пароль не верный";
  			
 
  		</main>
-<footer>
+
  			<?php include($__ROOT__."includes/footer.php") ?>
- 		</footer>
+ 		
  	</div>
  
  </body>

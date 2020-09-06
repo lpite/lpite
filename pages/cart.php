@@ -221,9 +221,9 @@ foreach ($delivery as $key => $value) {
   
      </div>
     </main>
-    <footer>
+  
         <?php include($__ROOT__."includes/footer.php")?>
-    </footer>
+    
 </div>
 
 </body>

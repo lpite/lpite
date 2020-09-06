@@ -103,13 +103,13 @@ if (isset($_POST['select']) ? $_POST['select'] : 0) {
         }
             ?>
         </main>
-        <footer>
+        
             <?php   include($__ROOT__."includes/footer.php") ?>
             <script type="text/javascript">
                 set_sort();
                 set_pdonpg();
         </script>
-        </footer>
+        
       
     </div>
 

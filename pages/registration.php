@@ -124,9 +124,9 @@ if (isset($data['signup'])) {
 			</div>
 
 		</main>
-		<footer>
+	
 			<?php include "includes/footer.php" ?>
-		</footer>
+		
 
 	</div>
 
