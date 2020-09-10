@@ -9,14 +9,17 @@ if (!R::testConnection()) {
 }
 session_start();
 $products_on_page_cookie = (int)$_COOKIE['pdonpg'];
-if ($products_on_page_cookie === 15 or 30 or 50) {
+
+if ($products_on_page_cookie === 15 or $products_on_page_cookie === 30  or $products_on_page_cookie === 50) {
   $products_on_page = $products_on_page_cookie;
-}
-
-
-if ($products_on_page === 0) {
+}else{
   $products_on_page = 15;
 }
+
+
+// if ($products_on_page === 0) {
+//   $products_on_page = 15;
+// }
 function dump($what)
 {
   echo print_r($what) . '<br>';

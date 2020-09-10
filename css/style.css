@@ -197,30 +197,26 @@ input {
 .main-img {
   height: 100%;
 }
-.last-search{
-  position: absolute;
-  width: 100%;
-  height: 40px;
-  margin: 75px 0 0 0;
-}
 .search-div {
-  position: sticky;
   width: 500px;
   height: 38px;
   background: var(--main-color);
   float: left;
   margin: 8px;
   display: flex;
-  align-items: center;
+  /*align-items: center;*/
   transition: 0.4s ease-in-out;
-    border-radius: 5px;
+  border-radius: 5px;
+  /*align-items: stretch;*/
+  align-content: stretch;
+  justify-content: space-between;
 }
 
 .search-input {
   -webkit-appearance: none;
   transition: 0.4s ease-in-out;
   margin-left: 8px;
-  width: 454px;
+  /*width: 454px;*/
   height: 100%;
   border: 3px solid var(--main-color);
   float: left;
@@ -310,7 +306,6 @@ input {
   padding: 2px;
 
 }
-
 
 .container {
   width: 1200px;
@@ -437,16 +432,6 @@ input {
   transition: 0.2s ease-in-out;
 }
 
-/*.tovar-text {
-  margin-left: 5px;
-  padding: 5px;
-  float: left;
-  height: 100%;
-  width: 80%;
-  font-size: 15px;
-
-}*/
-
 .tovar-name {
   font-size: 13pt;
 }
@@ -462,10 +447,6 @@ input {
 }
 
 .tovar-button-price {
-  /*padding: 5px;*/
-  /*float: left;*/
-  /*height: 100%;*/
-  /*min-width: 110px;*/
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -557,7 +538,7 @@ input {
   width: 100%;
   display: flex;
   justify-content: center;
-  overflow-x: auto;
+
 }
 
 .button-footer {
@@ -798,9 +779,9 @@ input {
     width: 300px;
   }
 
-  .search-input {
+  /*.search-input {
     width: 255px;
-  }
+  }*/
 
   .nav-ul li {
     margin-left: 8px;
@@ -904,9 +885,9 @@ input {
     width: 200px;
   }
 
-  .search-input {
+  /*.search-input {
     width: 155px;
-  }
+  }*/
 
   .main-img-div {
     height: 35px;
@@ -923,9 +904,9 @@ input {
     width: 180px;
   }
 
-  .search-input {
+  /*.search-input {
     width: 135px;
-  }
+  }*/
   .not-found{
   font-size: 30px;
 }
@@ -936,14 +917,11 @@ input {
     width: 160px;
   }
 
-  .search-input {
+ /* .search-input {
     width: 115px;
   }
-  .not-found{
-  font-size: 30px;
-}
 
-}
+}*/
 
 @media screen and (max-height: 490px) {
 

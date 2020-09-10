@@ -35,6 +35,7 @@ if (!isset($_COOKIE['sort'])) {
     }
 }
 $count_pages = R::count('tovar', "WHERE `category` = ?", array($category));
+
 $count_pages = ceil($count_pages / $products_on_page);
 
 
@@ -82,7 +83,9 @@ if (isset($_POST['select']) ? $_POST['select'] : 0) {
             <div class="name-page-div"><span><?php echo $name_page[$category] ?> </span></div>
             <div class="sort-div">
 
-                <?php sort_div(); ?>
+                <?php 
+
+                sort_div(); ?>
             </div>
             <?php
  if (empty($products)) {
@@ -95,6 +98,7 @@ if (isset($_POST['select']) ? $_POST['select'] : 0) {
             buttons();
            
             foreach ($products as  $product) {
+
 
                 include($__ROOT__."includes/product-div.php");
             }

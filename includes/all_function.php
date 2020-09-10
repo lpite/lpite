@@ -17,10 +17,13 @@ if ( $id_page <= 1) {
 
 }
 $i = 0;
-while ($count_pages != $i) {
+
+  while ($count_pages != $i) {
   $i++;
   echo '<div class="button-footer"><a href="&id='.$i.'">'.$i.'</a></div>';
 }
+
+
 if ( $count_pages != $id_page) {
 ?>
 <div class="button-footer"><a href="&id=<?php echo $id_page+1?>">Следующая</a></div>
