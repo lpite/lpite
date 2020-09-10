@@ -288,9 +288,8 @@ input {
   flex-direction: column;
   justify-content: center;
   border-radius:0 0 5px 5px;
-  padding: 0 0 15px 0;
+  padding: 0 0 5px 0;
   box-shadow: var(--shadow);
- 
 }
 
 .sort-div {
@@ -336,7 +335,6 @@ input {
   align-items: flex-start;
   overflow: hidden;
   transition: all 0.5s ease 0s;
-  /*transform: translateX(240px);*/
 }
 
 .overlay__content {
@@ -346,7 +344,6 @@ input {
   align-items: center;
   justify-content: flex-start;
   width: 250px;
-
   background-color: var(--main-color);
   box-shadow: var(--shadow);
 }
@@ -355,7 +352,6 @@ input {
   padding: 15px;
   font-size: 36px;
   display: block;
- 
 }
 
 .overlay a:hover,
@@ -366,7 +362,6 @@ input {
 .overlay .close {
   position: absolute;
   right: 0px;
-  opacity: 0;
   height: 100%;
   width: calc(100% - 250px);
   font-size: 60px;
@@ -425,12 +420,14 @@ input {
   margin: 8px 0 0 0;
   float: top;
   width: 98%;
-  height: 135PX;
+  height: 135px;
   display: flex;
   justify-content: space-between;
   border: 2px solid var(--white-color);
   transition: 0.2s ease-in-out;
   align-self: center;
+  align-items: stretch;
+  padding: 2px;
 
 }
 
@@ -440,7 +437,7 @@ input {
   transition: 0.2s ease-in-out;
 }
 
-.tovar-text {
+/*.tovar-text {
   margin-left: 5px;
   padding: 5px;
   float: left;
@@ -448,7 +445,7 @@ input {
   width: 80%;
   font-size: 15px;
 
-}
+}*/
 
 .tovar-name {
   font-size: 13pt;
@@ -462,14 +459,13 @@ input {
 
 .tovar-img {
   width: 100%;
-
 }
 
 .tovar-button-price {
-  padding: 5px;
-  float: left;
-  height: 100%;
-  min-width: 110px;
+  /*padding: 5px;*/
+  /*float: left;*/
+  /*height: 100%;*/
+  /*min-width: 110px;*/
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -481,7 +477,7 @@ input {
 }
 
 .button{
-   background: none;
+  background: none;
   cursor: pointer;
   transition: 0.3s ease-in-out;
   border: 2px solid var(--main-color);
@@ -502,11 +498,6 @@ input {
 .button:hover span{
   color: white;
   font-weight:bold ;
-}
-
-.button:active {
-  /*transform: translateY(0.6px);*/
- 
 }
 
 .tovar-price {
@@ -559,9 +550,6 @@ input {
   color: var(--white-color);
   background-color: var(--white-color);
 }
-
-
-
 
 .buttons-footer {
   height: 20px;
@@ -655,6 +643,7 @@ input {
   font-size: 23px;
   border: 3px solid var(--main-color);
   align-items: center;
+  border-radius: 0  5px 5px 0 ;
 }
 
 .page-tovar-price-div {
@@ -890,24 +879,23 @@ input {
   }
 
   .tovar-div {
-    width: 98.5%;
-    height: 225px;
+    /*width: 98.5%;*/
+    height: 100%;
     flex-direction: column;
     align-items: center;
-
+    display: flex;
   }
 
   .tovar-button-price {
     width: 100%;
     flex-direction: row;
     justify-content: center;
+    align-items: stretch;
   }
 
   .tovar-text {
-    width: 96%;
+    /*width: 96%;*/
   }
-
-
   .tovar-name {
     font-size: 11pt;
   }
