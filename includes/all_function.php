@@ -2,7 +2,7 @@
 
 function buttons(){
 
-    global $id_page, $count_pages,$category,$buttons,$a;
+    global $id_page, $count_pages,$category,$buttons;
 ?>
     <div class="buttons-footer">
     <?php
@@ -114,17 +114,13 @@ if ($product['dostupnost'] >=1 ) {
 function search_div(){
   ?>
        <div class="search-div" id="search-div">
-       <div class="search-input-button">
-  <form method="post" action="search-page.php?id=1">
-    
-    <input required minlength="2" results="5" autosave=some_unique_value id="search-input" class="search-input" type="search" name="search"/>
-  <button name="submit" type="submit" value="search" class="search-button">
-        <img class="search-img" src="../img/loupe.png">
-      </button>
-    
-  </form>
-  </div>  
-</div>
+           <form method="post" action="/search/">
+             <input required minlength="2" results="5" placeholder="Поиск" id="search-input" class="search-input" type="search" name="search">
+             <button name="submit" type="submit" value="search" class="search-button">
+               <img class="search-img" alt="Поиск" src="/img/loupe.svg">
+             </button>
+           </form>
+         </div>
 <?php
 }
 function sort_div(){

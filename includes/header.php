@@ -41,16 +41,7 @@
            </a>
          </div>
 
-         <div class="search-div" id="search-div">
-           <form method="post" action="/search/">
-             <input required minlength="2" results="5" autosave=some_unique_value id="search-input" class="search-input" type="search" name="search">
-
-             <button name="submit" type="submit" value="search" class="search-button">
-               <img class="search-img" alt="Поиск" src="/img/loupe.svg">
-             </button>
-           </form>
-          
-         </div>
+         <?php search_div(); ?>
       <div class="phone-div">
         <div class="phone phone-hover">
           <img class="phone-img" src="/img/phone.svg">
@@ -88,15 +79,7 @@
            <img class="main-img" alt="Главная" src="/img/main-img.jpg">
          </a>
        </div>
-       <div class="search-div" id="search-div">
-         <form method="post" action="/search/" >
-           <input required minlength="2" results="5" autosave=some_unique_value id="search-input1" class="search-input" type="search" name="search">
-
-           <button name="submit" type="submit" value="search" class="search-button">
-             <img class="search-img" alt="Поиск" title="Поиск" src="/img/loupe.svg">
-           </button>
-         </form>
-       </div>
+        <?php search_div(); ?>
    <div class="phone-div">
         <div class="phone phone-hover">
           <img class="phone-img" src="/img/phone.svg">

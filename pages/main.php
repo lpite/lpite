@@ -1,6 +1,4 @@
-<?php 
-mail('lslkxksoslxlkxkxkx@gmail.com', 'e', 'test');
- ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +18,7 @@ mail('lslkxksoslxlkxkxkx@gmail.com', 'e', 'test');
 
             <a href="/instrument/">
                 <div class="category-div">
-                    <img alt="Инструменты" src="../img/phone.svg">
+                    <img alt="Инструменты" src="/img/phone.svg">
                     <div class="category-margin">
                     </div>
                     <span>Инструменты</span>
@@ -28,7 +26,7 @@ mail('lslkxksoslxlkxkxkx@gmail.com', 'e', 'test');
             </a>
             <a href="/maslo/">
                 <div class="category-div">
-                    <img alt="Масло" src="../img/oil-cat.webp">
+                    <img alt="Масло" src="/img/oil-cat.webp">
                     <div class="category-margin">
                     </div>
                     <span>Масло</span>
@@ -36,7 +34,7 @@ mail('lslkxksoslxlkxkxkx@gmail.com', 'e', 'test');
             </a>
             <a href="/parts/">
                 <div class="category-div">
-                    <img alt="Масло" src="../img/phone.svg">
+                    <img alt="Масло" src="/img/phone.svg">
                     <div class="category-margin">
                     </div>
                     <span>Запчасти</span>

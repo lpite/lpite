@@ -181,7 +181,7 @@ input {
 }
 
 .header-popup-img-div {
-  width: 100px;
+  width: 166px;
   float: left;
   display: flex;
   transition: 0.2s ease-in-out;
@@ -216,7 +216,7 @@ input {
   -webkit-appearance: none;
   transition: 0.4s ease-in-out;
   margin-left: 8px;
-  /*width: 454px;*/
+  width: 454px;
   height: 100%;
   border: 3px solid var(--main-color);
   float: left;
@@ -249,6 +249,7 @@ input {
   margin: 8px;
   float: left;
   width: 145px;
+
 }
 .phone-div:hover .phone-popup{
   display: flex;
@@ -256,7 +257,7 @@ input {
 }
 .phone-div:hover .phone-hover{
   border-radius: 5px 5px 0 0;
-   transition: 0.2s ease-in-out;
+   transition: 0.1s ease-in-out;
 }
 
 .phone{
@@ -267,11 +268,12 @@ input {
   justify-content: center;
   align-items: center;
    transition: 0.2s ease-in-out;
+   border-radius: 5px;
  
 }
 .phone-hover:hover{
   border-radius: 5px 5px 0 0;
-   transition: 0.2s ease-in-out;
+   transition: 0.1s ease-in-out;
 }
 
 .phone-popup{
@@ -286,6 +288,7 @@ input {
   border-radius:0 0 5px 5px;
   padding: 0 0 5px 0;
   box-shadow: var(--shadow);
+
 }
 
 .sort-div {
@@ -349,10 +352,10 @@ input {
   display: block;
 }
 
-.overlay a:hover,
+/*.overlay a:hover,
 .overlay a:focus {
   color: #0088a9;
-}
+}*/
 
 .overlay .close {
   position: absolute;
@@ -462,7 +465,7 @@ input {
   cursor: pointer;
   transition: 0.3s ease-in-out;
   border: 2px solid var(--main-color);
-  border-radius: 3px;
+  border-radius: 5px;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -488,7 +491,7 @@ input {
 .tovar-select {
   background: none;
   border: 2px solid var(--main-color);
-  height: 28px;
+  height: 29px;
   font-size: 21px;
   transition: 0.3s ease-in-out;
   border-radius: 5px;
@@ -499,7 +502,7 @@ input {
   background: var(--main-color);
   width: 47px;
   border: none;
-  height: 30.3px;
+  height: 29px;
   padding: 0;
   font-size: 22px;
   border-radius: 5px;
@@ -588,14 +591,14 @@ input {
   width: 100%;
   height: 100%;
   background: none;
-  border-left: 3px solid var(--main-color);
-  border-top: 3px solid var(--main-color);
-  border-bottom: 3px solid var(--main-color);
+  border-left: 2px solid var(--main-color);
+  border-top: 2px solid var(--main-color);
+  border-bottom: 2px solid var(--main-color);
   border-right: none;
   transition: 0.4s ease-in-out;
   font-size: 16px;
   cursor: pointer;
-   border-radius: 5px 0 0 5px;
+  border-radius: 5px 0 0 5px;
 }
 
 .page-tovar-buy-button:hover {
@@ -608,7 +611,7 @@ input {
   transition: 0.2s ease-in-out;
   height: 45px;
   font-size: 18px;
-  border: 3px solid var(--main-color);
+  border: 2px solid var(--main-color);
   cursor: pointer;
   border-radius: 0 5px 5px 0;
 
@@ -779,9 +782,9 @@ input {
     width: 300px;
   }
 
-  /*.search-input {
+  .search-input {
     width: 255px;
-  }*/
+  }
 
   .nav-ul li {
     margin-left: 8px;
@@ -799,6 +802,11 @@ input {
 }
 
 @media only screen and (max-width: 650px) {
+ .header-popup-img-div{
+    width: 100px;
+  
+  }
+
   .nav-ul {
     display: none;
   }
@@ -828,7 +836,6 @@ input {
   .page-tovar-description {
     width: 85%;
   }
-
   
 }
 
@@ -860,11 +867,10 @@ input {
   }
 
   .tovar-div {
-    /*width: 98.5%;*/
-    height: 100%;
+    height: 155px;
     flex-direction: column;
     align-items: center;
-    display: flex;
+
   }
 
   .tovar-button-price {
@@ -874,9 +880,6 @@ input {
     align-items: stretch;
   }
 
-  .tovar-text {
-    /*width: 96%;*/
-  }
   .tovar-name {
     font-size: 11pt;
   }
@@ -885,9 +888,9 @@ input {
     width: 200px;
   }
 
-  /*.search-input {
+  .search-input {
     width: 155px;
-  }*/
+  }
 
   .main-img-div {
     height: 35px;
@@ -904,9 +907,9 @@ input {
     width: 180px;
   }
 
-  /*.search-input {
+  .search-input {
     width: 135px;
-  }*/
+  }
   .not-found{
   font-size: 30px;
 }
@@ -917,11 +920,11 @@ input {
     width: 160px;
   }
 
- /* .search-input {
+  .search-input {
     width: 115px;
   }
 
-}*/
+}
 
 @media screen and (max-height: 490px) {
 

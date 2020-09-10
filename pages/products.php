@@ -1,6 +1,4 @@
 <?php
-$a = 1;
-
 $T = ($id_page * $products_on_page) - $products_on_page;
 
 $m = $_GET['route'];

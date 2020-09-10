@@ -16,10 +16,6 @@ if ($products_on_page_cookie === 15 or $products_on_page_cookie === 30  or $prod
   $products_on_page = 15;
 }
 
-
-// if ($products_on_page === 0) {
-//   $products_on_page = 15;
-// }
 function dump($what)
 {
   echo print_r($what) . '<br>';
