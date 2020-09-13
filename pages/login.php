@@ -121,7 +121,14 @@ $errors[] = "Пароль не верный";
    				 
    					<span>  <?php  echo ' '.substr($order['time'], 0,16).' '; ?> </span>
    				 
-   					<span> Сумма заказа <?php  echo $order['price'].'грн'; ?> </span>
+   					<span> Сумма заказа <?php  echo $order['price'];
+
+                if (!strpos($order['price'], '.')) {
+                 echo '.00';
+                } 
+                echo 'грн';
+
+             ?> </span>
            </div>
    		
    		<div id="<?php echo $order['id']?>.1" class="hidden order">
@@ -136,7 +143,7 @@ $errors[] = "Пароль не верный";
    				$prods = R::find('tovar','id = ?',array($key));
    				foreach ($prods as $prod) {
             ?>
-            <span><b><?php echo $prod['name']; ?></b></span><br>
+            <b><a href="/product/&id=<?php echo($prod['id']) ?>" target="self"><?php echo $prod['name']; ?></a></b><br>
             <table>
               <tbody>
                 <tr>
@@ -152,13 +159,22 @@ $errors[] = "Пароль не верный";
               </tr>
               <tr>
                 <td><?php echo $prod['price'];
-                if (preg_match('~(3)~', $prod['price'])) {
+                if (!strpos($prod['price'], '.')) {
                  echo '.00';
                 } 
                   
                  ?></td>
                 <td><?php echo $value; ?></td>
-                <td><?php echo $prod['price']*$value; ?></td>
+                <td><?php
+                $full = $prod['price']*$value;
+                echo $prod['price']*$value;
+                 if (!strpos($full,'.')) {
+  echo '.00';
+}
+                 
+
+
+                 ?></td>
               </tr>
               </tbody>
             </table>

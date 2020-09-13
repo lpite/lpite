@@ -60,7 +60,12 @@ foreach ($products as  $product) {
         </picture>
                   </div>
                 <div class="page-tovar-button-price-div">
-                    <div class="page-tovar-price-div"><span class="page-tovar-price">Цена: <?php echo  $product['price']; ?>грн</span>
+                    <div class="page-tovar-price-div"><span class="page-tovar-price">Цена: <?php echo $product['price'];
+
+ if (!strpos($product['price'], '.')) {
+                 echo '.00';
+                } 
+                     ?>грн</span>
                         <div class="page-tovar-buy-button-div">
                             <input data-id="<?php echo  $product['id']; ?>" type="submit" name="" class="page-tovar-buy-button buy-btn" value="Купить">
 

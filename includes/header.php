@@ -2,12 +2,20 @@
 
        <nav id="nav" class="nav">
          <ul class="nav-ul">
-           <li><a href="/">Главная</a></li>
+          <?php foreach ($navigation as $name => $link) {
+           echo ' <li><a href="'.$link.'">'.$name.'</a></li>';
+          } ?>
+          <!--  <li><a href="/">Главная</a></li>
            <li><a href="">Гарантии</a></li>
            <li><a href="/sto/">Оплата и доставка</a></li>
            <li><a href="/contacts/">Контакты</a></li>
-           <li><a href="">О нас</a></li>
-           <li>
+           <li><a href="">О нас</a></li> -->
+           <li class="cart-header"><a href="/cart/">
+               <div style="float: left;"><span>Корзина</span></div>
+               <div class="mini-cart"></div>
+             </a>
+           </li>
+               <li>
              <a href="/login/">
                <span>
                  <?php
@@ -21,10 +29,6 @@
                </span>
              </a>
            </li>
-           <li class="cart-header"><a href="/cart/">
-               <div style="float: left;"><span>Корзина</span></div>
-               <div class="mini-cart"></div>
-             </a></li>
          </ul>
          <div class="menu" onclick="openNav()">
            <div onclick="openNav()" class="burger-menu white"></div>
@@ -34,7 +38,7 @@
        </nav>
 
 
-       <div style="display: flex; align-items: flex-start;">
+       <div style="display: flex; align-items: center;  ">
          <div id="main-img" class="main-img-div">
            <a href="/">
              <img class="main-img" alt="На главную" src="/img/main-img.jpg">

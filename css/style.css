@@ -191,6 +191,7 @@ input {
 .main-img-div {
   height: 42px;
   float: left;
+  width: 166px;
   margin: 10px 0 0 0;
 }
 
@@ -202,7 +203,7 @@ input {
   height: 38px;
   background: var(--main-color);
   float: left;
-  margin: 8px;
+  margin: 8px 8px 8px 8px;
   display: flex;
   /*align-items: center;*/
   transition: 0.4s ease-in-out;
@@ -744,18 +745,23 @@ input {
   margin: 5px;
 }
 .order{
-/*flex-wrap: wrap;*/
-/*display: block;*/
 width: 450px;
-
-
+}
+.order table{
+  display: flex;
+  justify-content: center; 
+  flex-direction: row;
+  align-items: center;
+  
 }
 .order td{
-  padding: 0 45px 0 45px;
+  width: 100px;
+  
+  /*padding: 0 45px 0 45px;*/
   text-align: center;
 }
 .order span{
-  font-size: 14px;
+  font-size: 12px;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -816,9 +822,7 @@ width: 450px;
   .page-tovar-description {
     width: 70%;
   }
-  .order-div span {
-   font-size: 14px; 
-}
+
 
 }
 
