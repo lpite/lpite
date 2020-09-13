@@ -106,7 +106,7 @@ $errors[] = "Пароль не верный";
        }    
    foreach ($orders as $order) {
    	?>
-   	<div class="page-tovar-description order-div"  style="margin: 10px; width: 100%;
+   	<div class="order-div"  style="margin: 10px;
    	 <?php 
    	 if ($order['ready'] == 1) {
    		echo 'border-bottom: 2px solid dodgerblue';
@@ -116,71 +116,63 @@ $errors[] = "Пароль не верный";
    		echo 'border-bottom: 2px solid red';
    	}
    	 ?>"> 
-   		<table class="order-table" style="cursor: pointer;" id="<?php echo $order['id']?>">
-   			<tr>
-   				<td>
+   		<div class="order-table" id="<?php echo $order['id']?>">
    					<span >№ заказа <?php echo $order['id'].' ';  ?> </span>
-   				</td>
-   				<td>
-   					<span>  <?php  echo ' '.$order['time'].' '; ?> </span>
-   				</td>
-   				<td>
-   					<span> Сумма заказа <?php  echo $order['price'].' '; ?> </span>
-   				</td>
-
-   			</tr>
-   		</table>
-   		<div id="<?php echo $order['id']?>.1" class="hidden">
+   				 
+   					<span>  <?php  echo ' '.substr($order['time'], 0,16).' '; ?> </span>
+   				 
+   					<span> Сумма заказа <?php  echo $order['price'].'грн'; ?> </span>
+           </div>
+   		
+   		<div id="<?php echo $order['id']?>.1" class="hidden order">
            <p>Товары</p>
             <table>
-   		<tr>
-   			<td>Название</td>
-   			<td>Цена</td>
-   			<td>Кол-во</td>
-   		</tr>
+              <tbody> 
+                <tr>
    			<?php 
+        
    			$products = json_decode($order['products'],true);
    			foreach ($products as $key => $value) {
-   				$prod = R::find('tovar','id = ?',array($key));
-   				echo '<tr>';
-                
-   				foreach ($prod as $key) {
-   					?>
-   					<td>
-   						<span>
-   							<a href="/product/&<?php echo($key['id']) ?>"><?php echo substr($key['name'], 0,71).'...' ?> </a>
-   						</span>
-   					      				
-   				    </td>
-   				    <td>
-   				    	<span>
-   				    		<?php echo $key['price'].'грн'; ?>
-   				    	</span>
-   				    	
-   				    </td> 
-   				<td>
-   					<span>
-   						<?php echo $value; ?>
-   					</span>
-   					
+   				$prods = R::find('tovar','id = ?',array($key));
+   				foreach ($prods as $prod) {
+            ?>
+            <span><b><?php echo $prod['name']; ?></b></span><br>
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <span>Цена</span>
                 </td>
+                <td>
+                  <span>Кол-во</span>
+                </td>
+                <td>
+                  <span>Сумма</span>
+                </td>
+              </tr>
+              <tr>
+                <td><?php echo $prod['price'];
+                if (preg_match('~(3)~', $prod['price'])) {
+                 echo '.00';
+                } 
+                  
+                 ?></td>
+                <td><?php echo $value; ?></td>
+                <td><?php echo $prod['price']*$value; ?></td>
+              </tr>
+              </tbody>
+            </table>
 
-                <?php 
-   				}
-                echo '</tr>';
+                        <?php
+          }
+          
+          
+               
    			}
    			 ?>
-   			 <tr >
-   			 	<?php 
-   	 if ($order['ready'] == 1) {
-   		echo '<span>Обработка заказа</span>';
-   	}elseif ($order['ready'] == 2) {
-   		echo '<span>Заказ подтверждён</span>';
-   	}else{
-   		echo '<span>Заказ отменён</span>';
-   	}
-   	 ?>
-   			 </tr>
+</tr>
+   			 
+         </tbody> 
    			 </table>
    		</div>
   

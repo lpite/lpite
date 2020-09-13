@@ -102,7 +102,7 @@ input {
   align-items: center;
   transition: 0.4s ease-in-out;
   padding: 3px 10px 3px 10px;
-  margin-left: 30px;
+  margin-left: 20px;
 }
 
 .nav-ul li:hover {
@@ -189,7 +189,7 @@ input {
 }
 
 .main-img-div {
-  height: 55px;
+  height: 42px;
   float: left;
   margin: 10px 0 0 0;
 }
@@ -402,7 +402,8 @@ input {
 }
 
 .category-div span {
-  justify-self: center;
+  text-align: center;
+  justify-content: center;
   align-self: center;
   font-size: 16px;
   margin: 15px;
@@ -680,12 +681,9 @@ input {
   background: var(--main-color);
   border: none;
   transition: 0.2s ease-in-out;
+  border-radius: 5px;
 }
-.registration-input:focus {
-  border-radius: 2px;
-  box-shadow: var(--shadow);
-  transition: 0.2s ease-in-out;
-}
+
 
 .cart-input {
   height: 27px;
@@ -735,7 +733,30 @@ input {
 .bottom-border{
   border-bottom:2px solid dodgerblue;
 }
+.order-table{
+  display: flex;
+  cursor: pointer;
+  flex-wrap: wrap;
+  width: 450px;
+  
+}
+.order-table span{
+  margin: 5px;
+}
+.order{
+/*flex-wrap: wrap;*/
+/*display: block;*/
+width: 450px;
 
+
+}
+.order td{
+  padding: 0 45px 0 45px;
+  text-align: center;
+}
+.order span{
+  font-size: 14px;
+}
 
 @media only screen and (max-width: 1200px) {
   .container {

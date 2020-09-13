@@ -129,8 +129,8 @@ function sort_div(){
             <select class="Sort sort-input" name="select"  id="select">
                 <option value='a_z'>по названию А-Я</option>
                 <option value='z_a'>по названию Я-А</option>
-                <option  value='priceMax'>по убыванию цены</option>
-                <option value='priceMin'>по возрастанию цены</option>
+                <option  value='priceMin'>по убыванию цены</option>
+                <option value='priceMax'>по возрастанию цены</option>
             </select>
            
             <input class="hidden" type='submit' id="btn" name='submitSort' >

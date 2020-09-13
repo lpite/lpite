@@ -92,7 +92,7 @@ foreach ($products as $product ) {
 foreach ($payment as $key => $value) {
   ?>
                                 <div class="payment-radio-div" id="<?php echo($key) ?>">
-                                    <input value="<?php echo($key) ?>" type="radio" id="<?php echo($key) ?>.1" class="payment-radio" name="payment" />
+                                    <input required value="<?php echo($key) ?>" type="radio" id="<?php echo($key) ?>.1" class="payment-radio" name="payment" />
                                     <img src="/img/test.jpg" class="payment-radio-img">
                                     <label for="<?php echo($key) ?>"><?php echo $value; ?></label>
                                 </div>
@@ -124,7 +124,7 @@ foreach ($payment as $key => $value) {
 foreach ($delivery as $key => $value) {
   ?>
                                 <div class="payment-radio-div" id="<?php echo($key) ?>">
-                                    <input value="<?php echo($key) ?>" type="radio" id="<?php echo($key) ?>.1" class="payment-radio" name="payment" />
+                                    <input required value="<?php echo($key) ?>" type="radio" id="<?php echo($key) ?>.1" class="payment-radio" name="payment" />
                                     <img src="/img/test.jpg" class="payment-radio-img">
                                     <label for="<?php echo($key) ?>"><?php echo $value; ?></label>
                                 </div>

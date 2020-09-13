@@ -3,8 +3,8 @@
        <nav id="nav" class="nav">
          <ul class="nav-ul">
            <li><a href="/">Главная</a></li>
-           <li><a href="">Магазин</a></li>
-           <li><a href="/sto/">СТО</a></li>
+           <li><a href="">Гарантии</a></li>
+           <li><a href="/sto/">Оплата и доставка</a></li>
            <li><a href="/contacts/">Контакты</a></li>
            <li><a href="">О нас</a></li>
            <li>

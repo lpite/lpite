@@ -32,7 +32,7 @@
     <div class="category-margin"></div>
     <?php
 
-    if ($product['dostupnost'] == 1) {
+    if ($product['dostupnost'] >= 1) {
     ?>
       <span class="green">Есть в наличии</span>
       <div class="category-margin"></div>

@@ -21,7 +21,7 @@
                     <img alt="Инструменты" src="/img/phone.svg">
                     <div class="category-margin">
                     </div>
-                    <span>Инструменты</span>
+                    <span>Инструмент</span>
                 </div>
             </a>
             <a href="/maslo/">
@@ -29,7 +29,7 @@
                     <img alt="Масло" src="/img/oil-cat.webp">
                     <div class="category-margin">
                     </div>
-                    <span>Масло</span>
+                    <span>Жидкости и масла</span>
                 </div>
             </a>
             <a href="/parts/">
