@@ -111,18 +111,40 @@ if ($product['dostupnost'] >=1 ) {
 
 
 }
+
+
+
+
+
 function search_div(){
   ?>
        <div class="search-div" id="search-div">
            <form method="post" action="/search/">
+          
              <input required minlength="2" results="5" placeholder="Поиск" id="search-input" class="search-input" type="search" name="search">
+           
+            
+             
              <button name="submit" type="submit" value="search" class="search-button">
                <img class="search-img" alt="Поиск" src="/img/loupe.svg">
              </button>
+             
            </form>
          </div>
 <?php
 }
+
+
+
+
+
+
+
+
+
+
+
+
 function sort_div(){
   ?>
  <form action='' method='post' name="select" data-settings='{"wrapperClass":"metro"}' id="select1" >

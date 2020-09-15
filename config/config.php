@@ -15,12 +15,16 @@ $phones =
   '5566456560',
   '4264756450'
  ] ;
- $emails = [
+
+ $emails = 
+ [
   'ejrfj@gmail.com',
   '55664565345@gmail.com',
   '4264756450@gmail.com'
  ] ;
- $routes = [
+
+ $routes = 
+ [
 '' => 'pages/main.php',
 '/' => 'pages/main.php',
 'search/' => 'pages/search-test.php',
@@ -39,9 +43,54 @@ $phones =
 'product/' => 'pages/product.php',
 'admin/' => 'admin/admin.php'
  ];
+
  $delivery = ['доставка 1','доставка 2' ,'доставка 3', 'доставка 4'];
  
  $payment = ['Оплата 1','Оплата 2' ,'Оплата 3', 'Оплата 4'];
- $navigation = ['Главная'=>'/','О нас'=>'/about/','Оплата и доставка'=>'/paydelivery/','Контакты'=>'contacts','Гарантии'=>'waranty'];
+ 
+ $navigation = [
 
+  [
+    'link'=>'/',
+    'name'=>'Главная',
+    'class'=>'show'
+  ]
+  ,
+ [
+    'link'=>'/about/',
+    'name'=>'О нас',
+     'class'=>'show'
+  ]
+  ,
+  [
+    'link'=>'/paydelivery/',
+    'name'=>'Оплата и доставка',
+    'class'=>''
+  ]
+  ,
+  [
+    'link'=>'/contacts/',
+    'name'=>'Контакты',
+     'class'=>'show'
+  ]
+  ,
+  [
+    'link'=>'/waranty/',
+    'name'=>'Гарантии',
+    'class'=>'show'
+  ]
+  ,
+  [
+    'link'=>'/login/',
+    'name'=>'',
+    'class'=>'white'
+  ]
+  ,
+  [
+    'link'=>'/login/',
+    'name'=>'',
+    'class'=>'white'
+  ]
+  ,
+]
  ?>

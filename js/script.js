@@ -11,7 +11,9 @@ const header_popup = document.getElementById("header-popup");
 const search_div = document.getElementById("search-div");
 const sticky = search_div.offsetTop;
 const orders = document.querySelectorAll('.order-table');
-
+const container = document.querySelector('.container');
+const mini_cart = document.querySelector('.mini-cart');
+const mini_cart1 = document.querySelector('.mini-cart1');
 checkCart();
 showMiniCart();
 fullprice();
@@ -86,9 +88,14 @@ function showMiniCart() {
     for (var w in cart) {
         cart_count += cart[w];
     }
-    const mini_cart = document.querySelector('.mini-cart');
+
     mini_cart &&  mini_cart
     mini_cart.innerHTML = cart_count;
+
+    mini_cart1 &&  mini_cart1
+    mini_cart1.innerHTML = cart_count;
+    console.log(cart_count);
+   
 }
 
 function set_sort() {
@@ -254,8 +261,18 @@ function myFunction() {
 
         header_popup.classList.replace('show-opacity', 'hidden-opacity')
     }
+  
 
 }
+ let width = container.offsetWidth.toString();
+   header_popup.style.width = width+'px';
+   
+window.onresize = function(event) {
+   let width = container.offsetWidth.toString();
+   header_popup.style.width = width+'px';
+};
+
+
 
 orders &&
 Array.from(orders).forEach(link => {

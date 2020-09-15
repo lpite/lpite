@@ -4,6 +4,9 @@
   text-decoration: none;
 
 }
+a{
+  color: #003274;
+}
 
 :root {
   --shadow: 1px 2px 5px 0px #958585;
@@ -82,6 +85,7 @@ input {
   background: var(--main-color);
   align-items: center;
   display: flex;
+  justify-content: space-between;
 }
 
 .nav a {
@@ -90,7 +94,7 @@ input {
 
 .nav-ul {
   display: flex;
-  margin: 5px;
+
   align-items: center;
 }
 
@@ -102,7 +106,7 @@ input {
   align-items: center;
   transition: 0.4s ease-in-out;
   padding: 3px 10px 3px 10px;
-  margin-left: 20px;
+  margin-left:15px;
 }
 
 .nav-ul li:hover {
@@ -118,11 +122,11 @@ input {
   color: var(--white-color);
 }
 
-.nav-ul span {
+/*.nav-ul span {
   color: var(--white-color);
 
 }
-
+*/
 .cart-header {
   display: flex;
   align-items: center;
@@ -135,8 +139,8 @@ input {
 
 .mini-cart {
   font-size: 13px;
-  margin: 0 0 0 3px;
-  float: left;
+  /*margin: 0 0 0 3px;*/
+  /*float: left;*/
   display: flex;
   width: 21px;
   height: 21px;
@@ -145,6 +149,8 @@ input {
   text-align: center;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  margin: 0  0 25px 30px;
 
 }
 
@@ -199,28 +205,29 @@ input {
   height: 100%;
 }
 .search-div {
-  width: 500px;
+  width: 45%;
   height: 38px;
   background: var(--main-color);
   float: left;
   margin: 8px 8px 8px 8px;
   display: flex;
-  /*align-items: center;*/
+  align-items: center;
   transition: 0.4s ease-in-out;
   border-radius: 5px;
-  /*align-items: stretch;*/
-  align-content: stretch;
+  flex-direction: row;
   justify-content: space-between;
+  flex-wrap: nowrap;
+}
+.search-div form{
+  width: 100%;
 }
 
 .search-input {
   -webkit-appearance: none;
   transition: 0.4s ease-in-out;
-  margin-left: 8px;
-  width: 454px;
+  width:calc(100% - 39px);
   height: 100%;
   border: 3px solid var(--main-color);
-  float: left;
   font-size: 24px;
   background: var(--main-color);
   border-radius: 10px;
@@ -233,7 +240,6 @@ input {
 .search-button {
   height: 34px;
   width: 34px;
-  float: left;
   margin-top: 2px;
   background: none;
   border: none;
@@ -246,10 +252,11 @@ input {
   margin: 2px;
 }
 .phone-div{
-  display: block;
-  margin: 8px;
+  display: initial;
+  margin: 0 8px 0 0;
   float: left;
   width: 145px;
+  position: initial;
 
 }
 .phone-div:hover .phone-popup{
@@ -291,6 +298,21 @@ input {
   box-shadow: var(--shadow);
 
 }
+.cart-div{
+  display: flex;
+  width: 50px;
+  height: 38px;
+  background: var(--main-color);
+  border-radius: 5px;
+  margin: 0 5px 0 0;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.cart-div img{
+  height: 23px;
+}
+
 
 .sort-div {
   margin: 5px;
@@ -534,6 +556,9 @@ input {
 }
 .white{
   color: var(--white-color);
+
+}
+.white-bg{
   background-color: var(--white-color);
 }
 
@@ -763,6 +788,9 @@ width: 450px;
 .order span{
   font-size: 12px;
 }
+ .toggle-hidden-nav{
+    display: flex;
+  }
 
 @media only screen and (max-width: 1200px) {
   .container {
@@ -781,12 +809,11 @@ width: 450px;
 
 @media only screen and (max-width: 1023px) {
   .container {
-    width: 850px;
-    margin: 0 auto;
+    width: 830px;
   }
 
   .nav-ul li {
-    margin-left: 25px;
+    margin-left: 5px;
   }
 
   .page-tovar-img-div {
@@ -794,6 +821,9 @@ width: 450px;
     height: 500px;
     display: flex;
     float: left;
+  }
+    .toggle-hidden-nav{
+    display: none;
   }
 
 }
@@ -805,16 +835,16 @@ width: 450px;
     padding: 0;
   }
 
-  .search-div {
+ /* .search-div {
     width: 300px;
-  }
+  }*/
 
-  .search-input {
+ /* .search-input {
     width: 255px;
-  }
+  }*/
 
   .nav-ul li {
-    margin-left: 8px;
+    margin-left: 5px;
     padding: 3px 8px 3px 8px;
   }
 
@@ -909,13 +939,13 @@ width: 450px;
     font-size: 11pt;
   }
 
-  .search-div {
+ /* .search-div {
     width: 200px;
   }
-
-  .search-input {
+*/
+ /* .search-input {
     width: 155px;
-  }
+  }*/
 
   .main-img-div {
     height: 35px;
@@ -928,26 +958,26 @@ width: 450px;
 
 }
 @media only screen and (max-width: 500px) {
-  .search-div {
+ /* .search-div {
     width: 180px;
-  }
+  }*/
 
-  .search-input {
-    width: 135px;
-  }
+  /*.search-input {*/
+  /*  width: 135px;
+  }*/
   .not-found{
   font-size: 30px;
 }
 
 }
 @media only screen and (max-width: 400px) {
-  .search-div {
+ /* .search-div {
     width: 160px;
-  }
+  }*/
 
-  .search-input {
+ /* .search-input {
     width: 115px;
-  }
+  }*/
 
 }
 

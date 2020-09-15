@@ -2,43 +2,37 @@
 
        <nav id="nav" class="nav">
          <ul class="nav-ul">
-          <?php foreach ($navigation as $name => $link) {
-           echo ' <li><a href="'.$link.'">'.$name.'</a></li>';
-          } ?>
-          <!--  <li><a href="/">Главная</a></li>
-           <li><a href="">Гарантии</a></li>
-           <li><a href="/sto/">Оплата и доставка</a></li>
-           <li><a href="/contacts/">Контакты</a></li>
-           <li><a href="">О нас</a></li> -->
-           <li class="cart-header"><a href="/cart/">
-               <div style="float: left;"><span>Корзина</span></div>
-               <div class="mini-cart"></div>
-             </a>
-           </li>
-               <li>
-             <a href="/login/">
-               <span>
-                 <?php
-                  if (!isset($_SESSION['log_in'])) {
-                    echo ($name_page['login']);
-                  } else {
+          <?php foreach ($navigation as $arr) {
+            ?>
+          <li class="">
+            <a href="<?php echo($arr['link']) ?>">
+              <span class="<?php echo($arr['class']) ?>">
+                 <?php echo($arr['name']) ;
+                 if ($arr['link'] === "/login/") {
+                 if (isset($_SESSION['log_in'])) {
                     echo (substr($_SESSION['log_in']->email, 0, 10)) . "...";
+                  } else{
+                    echo("Войти");
                   }
-
-                  ?>
-               </span>
-             </a>
-           </li>
+                 }
+              ?>
+              </span>
+             
+              </a>
+            </li>
+           <?php
+          } ?>
+           
          </ul>
          <div class="menu" onclick="openNav()">
-           <div onclick="openNav()" class="burger-menu white"></div>
-           <div onclick="openNav()" class="burger-menu white"></div>
-           <div onclick="openNav()" class="burger-menu white"></div>
+           <div onclick="openNav()" class="burger-menu white-bg"></div>
+           <div onclick="openNav()" class="burger-menu white-bg"></div>
+           <div onclick="openNav()" class="burger-menu white-bg"></div>
          </div>
        </nav>
 
 
-       <div style="display: flex; align-items: center;  ">
+       <div style="display: flex; align-items: center; width: 100%; ">
          <div id="main-img" class="main-img-div">
            <a href="/">
              <img class="main-img" alt="На главную" src="/img/main-img.jpg">
@@ -68,7 +62,12 @@
         </div>
         
       </div>
-
+ <div class="cart-div" title="Корзина">
+  <a href="/cart/">
+  <img alt="Корзина" src="/img/cart-dash.svg">
+  </a>
+  <div class="mini-cart"></div>
+ </div>
      </div>    
      </header>
      <div class="header-popup hidden-opacity" id="header-popup">
@@ -106,6 +105,12 @@
         </div>
         
       </div>
+       <div class="cart-div" title="Корзина">
+  <a href="/cart/">
+  <img alt="Корзина" src="/img/cart-dash.svg">
+  </a>
+  <div class="mini-cart mini-cart1"></div>
+ </div>
 
      </div>
      <div id="mobile__menu" class="overlay">
