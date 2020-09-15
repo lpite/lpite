@@ -12,8 +12,7 @@
     include "includes/header.php";
     ?>
 
-    <main >
-
+    <main>
         <div class="name-page-div"><span class="name-page">Главная </span></div>
 
             <a href="/instrument/">
@@ -34,7 +33,7 @@
             </a>
             <a href="/parts/">
                 <div class="category-div">
-                    <img alt="Масло" src="/img/phone.svg">
+                    <img alt="Масло" src="/img/parts-cat.jpg">
                     <div class="category-margin">
                     </div>
                     <span>Запчасти</span>

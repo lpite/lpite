@@ -9,7 +9,7 @@ if (isset($data['login'])) {
 		if(password_verify($data['password'], $user->password)){
 
 $_SESSION['log_in'] =  $user;
-$sucessfull = "Всё ок ".$_SESSION['log_in']->email;
+
 		}else{
 $errors[] = "Пароль не верный";
 		}
@@ -77,14 +77,6 @@ $errors[] = "Пароль не верный";
 
 
 </div>
-
-
-
- 			
- 		
- 			 	
-
- 		
 
  			 	</form>
  			 	 </div>
@@ -198,9 +190,7 @@ $errors[] = "Пароль не верный";
    	<?php 
    }
 	 ?>
-	 <form method="post" >
-	<button name="logout" class="tovar-buy-button button"><span>Выйти</span></button>
-</form>
+	
 </div>
 </div>
  			 	 		 <?php

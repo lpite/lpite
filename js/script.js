@@ -94,7 +94,7 @@ function showMiniCart() {
 
     mini_cart1 &&  mini_cart1
     mini_cart1.innerHTML = cart_count;
-    console.log(cart_count);
+
    
 }
 

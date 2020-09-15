@@ -2,11 +2,7 @@
 require_once($__ROOT__.'rb.php') ;
 require_once($__ROOT__."config/config.php");
 require_once 'all_function.php';
-R::setup('mysql:host=127.0.0.1;dbname=two', 'root', '');
-// R::freeze(true);
-if (!R::testConnection()) {
-  exit("net podk435l");
-}
+require_once 'connDB.php';
 session_start();
 $products_on_page_cookie = (int)$_COOKIE['pdonpg'];
 
@@ -111,7 +107,9 @@ if (isset($data['check'])){
      }
 
 
-
+if (isset($_GET['logout'])) {
+  unset($_SESSION['log_in']);
+}
  //выход из аккаунта
      if (isset($data['logout'])) {
       unset($_SESSION['log_in']);

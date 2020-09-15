@@ -3,24 +3,17 @@
        <nav id="nav" class="nav">
          <ul class="nav-ul">
           <?php foreach ($navigation as $arr) {
+            if ($arr['class'] !== 'toggle-nav') {
             ?>
-          <li class="">
+          <li>
             <a href="<?php echo($arr['link']) ?>">
               <span class="<?php echo($arr['class']) ?>">
-                 <?php echo($arr['name']) ;
-                 if ($arr['link'] === "/login/") {
-                 if (isset($_SESSION['log_in'])) {
-                    echo (substr($_SESSION['log_in']->email, 0, 10)) . "...";
-                  } else{
-                    echo("Войти");
-                  }
-                 }
-              ?>
+                 <?php echo($arr['name']);?>
               </span>
-             
               </a>
             </li>
            <?php
+           }
           } ?>
            
          </ul>

@@ -47,7 +47,8 @@ $phones =
  $delivery = ['доставка 1','доставка 2' ,'доставка 3', 'доставка 4'];
  
  $payment = ['Оплата 1','Оплата 2' ,'Оплата 3', 'Оплата 4'];
- 
+
+ $name = (!$_SESSION['log_in']) ? substr($_SESSION['log_in']->email, 0, 10) . "..." : "Войти" ;
  $navigation = [
 
   [
@@ -65,13 +66,13 @@ $phones =
   [
     'link'=>'/paydelivery/',
     'name'=>'Оплата и доставка',
-    'class'=>''
+    'class'=>'toggle-nav'
   ]
   ,
   [
     'link'=>'/contacts/',
     'name'=>'Контакты',
-     'class'=>'show'
+     'class'=>''
   ]
   ,
   [
@@ -82,15 +83,18 @@ $phones =
   ,
   [
     'link'=>'/login/',
-    'name'=>'',
+    'name'=>"$name",
     'class'=>'white'
   ]
   ,
-  [
-    'link'=>'/login/',
-    'name'=>'',
+    [
+    'link'=>'&logout',
+    'name'=>'Выйти',
     'class'=>'white'
-  ]
-  ,
+    ]
+
+  
+  
+  
 ]
  ?>

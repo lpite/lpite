@@ -88,16 +88,13 @@ foreach ($products as $product ) {
   ?>
                         <div>
                             <form method="post" action="/cart/delivery/">
-                              <?php 
-foreach ($payment as $key => $value) {
-  ?>
-                                <div class="payment-radio-div" id="<?php echo($key) ?>">
-                                    <input required value="<?php echo($key) ?>" type="radio" id="<?php echo($key) ?>.1" class="payment-radio" name="payment" />
+                                <div class="payment-radio-div" id="1">
+                                    <input required value="1" type="radio" id="1.1" class="payment-radio" name="payment" />
                                     <img src="/img/test.jpg" class="payment-radio-img">
-                                    <label for="<?php echo($key) ?>"><?php echo $value; ?></label>
+                                    <label for="1.1">wefwef</label>
                                 </div>
    <?php 
-}
+
                                ?>
                                 <button name="pay" class="tovar-buy-button button" >Далее</button>
 
