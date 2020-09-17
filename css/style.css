@@ -237,7 +237,7 @@ input:-webkit-autofill:active  {
   transition: 0.4s ease-in-out;
   width:calc(100% - 39px);
   height: 100%;
-  border: 3px solid var(--main-color);
+  border: none;
   font-size: 24px;
   background: var(--main-color);
   border-radius: 10px;
@@ -360,7 +360,7 @@ input:-webkit-autofill:active  {
   width: 100%;
   position: fixed;
   z-index: 1;
-  left: -100%;
+  transform: translateX(-100%);
   top: 0;
   display: flex;
   align-items: flex-start;
@@ -381,14 +381,9 @@ input:-webkit-autofill:active  {
 
 .overlay a {
   padding: 15px;
-  font-size: 36px;
+  font-size: 20px;
   display: block;
 }
-
-/*.overlay a:hover,
-.overlay a:focus {
-  color: #0088a9;
-}*/
 
 .overlay .close {
   position: absolute;
@@ -451,7 +446,7 @@ input:-webkit-autofill:active  {
 .tovar-div {
   margin: 8px 0 0 0;
   float: top;
-  width: 98%;
+  width: 99%;
   height: 135px;
   display: flex;
   justify-content: space-between;
@@ -769,6 +764,9 @@ input:-webkit-autofill:active  {
 .bottom-border{
   border-bottom:2px solid dodgerblue;
 }
+.order-div{
+  width: 465px;
+}
 .order-table{
   display: flex;
   cursor: pointer;
@@ -818,7 +816,7 @@ width: 100%;
 
 @media only screen and (max-width: 1023px) {
   .container {
-    width: 830px;
+    width: 850px;
   }
 
   .nav-ul li {
@@ -835,6 +833,11 @@ width: 100%;
     display: none;
   }
 
+}
+@media only screen and (max-width: 850px) {
+  .container {
+    width: 772px;
+  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -857,10 +860,12 @@ width: 100%;
   display: none;
 }
 
-
 }
 
 @media only screen and (max-width: 650px) {
+  .order-div{
+  width: 405px;
+}
  .header-popup-img-div{
     width: 100px;
   
@@ -928,7 +933,7 @@ width: 100%;
   .tovar-div {
     height: 155px;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
 
   }
 
@@ -945,30 +950,15 @@ width: 100%;
 
   .main-img-div {
     height: 35px;
+    width: 95px;
   }
   .header-popup-img-div{
     width: 100px;
    height: 35px;
   }
 
-
+.order-div{
+  width: 300px;
 }
-@media only screen and (max-width: 500px) {
-
-
-
-}
-@media only screen and (max-width: 400px) {
-
-
 }
 
-@media screen and (max-height: 490px) {
-
-  .overlay a {
-    font-size: 20px;
-  }
-
-
-
-}

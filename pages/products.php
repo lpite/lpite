@@ -12,9 +12,7 @@ switch ($m) {
     case 'parts/':
         $category = 3;
         break;
-    default:
-        # code...
-        break;
+   
 }
 
 if (!isset($_COOKIE['sort'])) {
@@ -36,10 +34,9 @@ $count_pages = R::count('tovar', "WHERE `category` = ?", array($category));
 
 $count_pages = ceil($count_pages / $products_on_page);
 
-
-
 if ($id_page > $count_pages) {
     $id_page = 1;
+    header('Location:&id=1');
 }
 
 

@@ -1,7 +1,7 @@
 function openNav() {
-  document.getElementById("mobile__menu").style.left = "0";
+  document.getElementById("mobile__menu").style.transform = "translateX(0)";
 }
 
 function closeNav() {
- document.getElementById("mobile__menu").style.left = "-100%";
+ document.getElementById("mobile__menu").style.transform = "translateX(-100%)";
 }

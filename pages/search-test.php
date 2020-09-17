@@ -27,10 +27,16 @@ if (!isset($count_pages)) {
     $count_pages = R::count("tovar", "`id` LIKE ? OR `name` LIKE ? OR `articyl` LIKE ? OR `id_kat` LIKE ?", array($search_s,$search_s,$search_s,$search_s));
 }
 
-
 $count_pages = ceil($count_pages / $products_on_page);
+
 if ($id_page > $count_pages) {
     $id_page = 1;
+    if ($count_pages != 0 ) {
+     header('Location:&id=1');
+        echo($count_pages);
+}
+
+   
 }
 
 

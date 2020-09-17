@@ -2,19 +2,59 @@
 
        <nav id="nav" class="nav">
          <ul class="nav-ul">
-          <?php foreach ($navigation as $arr) {
-            if ($arr['class'] !== 'toggle-nav') {
-            ?>
+         
           <li>
-            <a href="<?php echo($arr['link']) ?>">
-              <span class="<?php echo($arr['class']) ?>">
-                 <?php echo($arr['name']);?>
+            <a href="/">
+              <span class="">
+                 Главная
               </span>
               </a>
             </li>
-           <?php
-           }
-          } ?>
+
+          <li>
+            <a href="/about/">
+              <span class="">
+                 О нас
+              </span>
+              </a>
+            </li>
+
+          <li>
+            <a href="/contacts/">
+              <span class="">
+                 Контакты
+              </span>
+              </a>
+            </li>
+
+          <li>
+            <a href="/waranty/">
+              <span class="">
+                 Гарантии и доставка
+              </span>
+              </a>
+            </li>
+<?php $name = (isset($_SESSION['log_in'])) ? substr($_SESSION['log_in']->email,0,16).'...' : 'Войти' ; ?>
+          <li>
+            <a href="/login/">
+              <span class="white">
+                 <?php echo($name) ?>
+              </span>
+              </a>
+            </li>
+           <?php if ($name !== 'Войти') {
+  ?>
+   <li>
+            <a href="&logout">
+              <span class="white">
+                 Выход
+              </span>
+              </a>
+            </li>
+ <?php
+} 
+?>
+         
            
          </ul>
          <div class="menu" onclick="openNav()">
@@ -76,7 +116,8 @@
          </a>
        </div>
         <?php search_div(); ?>
-   <div class="phone-div">
+
+    <div class="phone-div">
         <div class="phone phone-hover">
           <img class="phone-img" src="/img/phone.svg">
           <span><?php echo $phones[0]; ?></span>
@@ -110,21 +151,21 @@
        <a class="close" id="overlay-content" onclick="closeNav()"></a>
        <div class="overlay__content">
          <a href="/">Главная</a>
-         <a href="">Магазин</a>
-         <a href="/sto/">СТО</a>
+         <a href="/about/">О нас</a>
          <a href="/contacts/">Контакты</a>
-         <a href="">О нас</a>
-         <a href="/login/"><span>
-             <?php
-              if (!isset($_SESSION['log_in'])) {
-                echo ($name_page['login']);
-              } else {
-                echo (substr($_SESSION['log_in']->email, 0, 10)) . "...";
-              }
-
-              ?>
-              </span></a>
+         <a href="/waranty/">Гарантии и доставка</a>
          <a href="/cart/"><span>Корзина</span></a>
+         <a href="/login/"><span class="white"><?php echo($name) ?></span></a>
+             <?php 
+                 if ($name !== 'Войти') {
+         ?> 
+         <a href="&logout"><span class="white">Выйти</span></a>
+        <?php 
+}  
+              
+        ?>     
+             
+         
 
        </div>
 

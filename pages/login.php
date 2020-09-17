@@ -88,7 +88,7 @@ $errors[] = "Пароль не верный";
 <p>Имя:<?php echo($_SESSION['log_in']->name) ?></p>
 <p>Фамилия:<?php echo($_SESSION['log_in']->sur_name) ?></p>
 
-<div style="display: flex; flex-direction: column; align-self: center;">
+<div style="display: flex; flex-direction: column; align-self: center; ">
 		<span>История заказов</span>
         
 	<?php 
@@ -98,7 +98,7 @@ $errors[] = "Пароль не верный";
        }    
    foreach ($orders as $order) {
    	?>
-   	<div class="order-div"  style="margin: 10px;
+   	<div class="order-div"  style="margin: 10px ;
    	 <?php 
    	 if ($order['ready'] == 1) {
    		echo 'border-bottom: 2px solid dodgerblue';

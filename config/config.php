@@ -48,7 +48,8 @@ $phones =
  
  $payment = ['Оплата 1','Оплата 2' ,'Оплата 3', 'Оплата 4'];
 
- $name = (!$_SESSION['log_in']) ? substr($_SESSION['log_in']->email, 0, 10) . "..." : "Войти" ;
+
+
  $navigation = [
 
   [

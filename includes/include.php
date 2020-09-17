@@ -1,6 +1,6 @@
 <?php
 require_once($__ROOT__.'rb.php') ;
-require_once($__ROOT__."config/config.php");
+require_once($__ROOT__.'config/config.php');
 require_once 'all_function.php';
 require_once 'connDB.php';
 session_start();
@@ -12,10 +12,6 @@ if ($products_on_page_cookie === 15 or $products_on_page_cookie === 30  or $prod
   $products_on_page = 15;
 }
 
-function dump($what)
-{
-  echo print_r($what) . '<br>';
-}
 function getUserIpAddr()
 {
 	if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
@@ -36,9 +32,7 @@ date_default_timezone_set('Europe/Kyiv');
 if (isset($_COOKIE['cart'])) {
   $cart = $_COOKIE['cart'];
   $cart_decode = json_decode($cart ,true);
-  
   foreach ($cart_decode as $key => $value) {
-    // echo $value;
   }
 
 }
@@ -49,7 +43,6 @@ $test = [
   'price' => "$data[next]"
 ] ;
 $_SESSION['test'] = $test;
-// echo $data['next'];
 }
 //кнопка проверки
 if (isset($data['check'])){
@@ -105,14 +98,12 @@ if (isset($data['check'])){
       }
         
      }
+//
 
-
+ //выход из аккаунта
 if (isset($_GET['logout'])) {
   unset($_SESSION['log_in']);
 }
- //выход из аккаунта
-     if (isset($data['logout'])) {
-      unset($_SESSION['log_in']);
 
-     }
-    
+
+
