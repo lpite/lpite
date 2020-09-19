@@ -2,7 +2,6 @@ trash/
 img/
 pages/admin/
 .vscode
-.gitignore
-.gitattributes
+
 /includes/connDB.php
 
