@@ -45,7 +45,7 @@ function cart_div(){
     <div class="tovar-img-div" >
         <a href="/product/&id=<?php echo $product['id']  ?>">
              <picture   >
-          <source srcset="/img/<?php
+          <source srcset="/img/products/<?php
 
                                 if (empty($product['picture'])) {
                                   echo ('no-pic.jpg');
@@ -120,13 +120,11 @@ function search_div(){
   ?>
        <div class="search-div" id="search-div">
            <form method="post" action="/search/">
+   
+             <input required minlength="2" results="5" placeholder="Поиск" class="search-input" type="search" name="search">
           
-             <input required minlength="2" results="5" placeholder="Поиск" id="search-input" class="search-input" type="search" name="search">
-           
-            
-             
              <button name="submit" type="submit" value="search" class="search-button">
-               <img class="search-img" alt="Поиск" src="/img/loupe.svg">
+               <img class="search-img" alt="Поиск" src="/img/icons/loupe.svg">
              </button>
              
            </form>
@@ -147,7 +145,7 @@ function search_div(){
 
 function sort_div(){
   ?>
- <form action='' method='post' name="select" data-settings='{"wrapperClass":"metro"}' id="select1" >
+ <form action='' method='post' name="select" id="select1" >
             <select class="Sort sort-input" name="select"  id="select">
                 <option value='a_z'>по названию А-Я</option>
                 <option value='z_a'>по названию Я-А</option>

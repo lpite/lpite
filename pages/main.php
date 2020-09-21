@@ -17,7 +17,7 @@
 
             <a href="/instrument/">
                 <div class="category-div">
-                    <img alt="Инструменты" src="/img/phone.svg">
+                    <img alt="Инструменты" src="/img/icons/phone.svg">
                     <div class="category-margin">
                     </div>
                     <span>Инструмент</span>
@@ -25,7 +25,7 @@
             </a>
             <a href="/maslo/">
                 <div class="category-div">
-                    <img alt="Масло" src="/img/oil-cat.webp">
+                    <img alt="Масло" src="/img/icons/oil-cat.webp">
                     <div class="category-margin">
                     </div>
                     <span>Жидкости и масла</span>
@@ -33,7 +33,7 @@
             </a>
             <a href="/parts/">
                 <div class="category-div">
-                    <img alt="Масло" src="/img/parts-cat.jpg">
+                    <img alt="Масло" src="/img/icons/parts-cat.jpg">
                     <div class="category-margin">
                     </div>
                     <span>Запчасти</span>

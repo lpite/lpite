@@ -1,14 +1,14 @@
 <div class="tovar-div" id="tovar-div">
-  <div class="tovar-text">
+  <div style="min-width: 300px">
     <div class="tovar-img-div">
       <a href="/product/&id=<?php echo $product['id']  ?>">
         <picture>
-          <source srcset="../img/<?php 
-          $t = ($product['picture']) ? $product['picture'] : 'no-pic.jpg' ;
-            echo($t);?>"type="image/webp">
-            <source srcset="<?php echo($t) ?>" type="image/jpg">
+          <source srcset="/img/products/<?php 
+          $image = ($product['picture']) ? $product['picture'] : 'no-pic.jpg' ;
+            echo($image);?>"type="image/webp">
+            <source srcset="/img/products/no-pic.jpg" type="image/jpg">
               <img alt="<?php echo $product['name'] ?>" class="tovar-img"
-               src="../img/<?php echo($t) ?>">
+               src="/img/products/<?php echo($image) ?>">
         </picture>
      
       </a>

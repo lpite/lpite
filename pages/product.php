@@ -45,7 +45,7 @@ foreach ($products as  $product) {
                 <div class="name-page-div"><span class="name-page"><?php echo $product['name']; ?></span></div>
                 <div class="page-tovar-img-div" id="page-tovar-img-div">
                    <picture  class="page-tovar-img-div" >
-          <source srcset="../img/<?php
+          <source srcset="../img/products/<?php
 
                                 if (empty($product['picture'])) {
                                   echo ('no-pic.jpg');

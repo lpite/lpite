@@ -1,4 +1,5 @@
-<?php
+<?
+
 include "includes/include.php";
 if (isset($_GET['route'])) {
 	$m = $_GET['route'];
