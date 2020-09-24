@@ -3,6 +3,7 @@ require_once($__ROOT__.'rb.php') ;
 require_once($__ROOT__.'config/config.php');
 require_once 'all_function.php';
 require_once 'connDB.php';
+require_once 'test-div.php';
 session_start();
 $products_on_page_cookie = (int)$_COOKIE['pdonpg'];
 
@@ -89,12 +90,15 @@ if (isset($data['check'])){
         $zakaz ->delivery = $test['delivery'];
         $zakaz ->price = $test['price'];
         $zakaz ->ip = $test['ip'];
-        $zakaz ->time = date("Y-m-d h:i");
+        $zakaz ->time = date("d m Y h:i");
         $zakaz ->ready = 1;
+        $zakaz ->id_zakaz = substr(date('Y'), 2).date('mdhis');  
+        $info_order['id'] = $zakaz['id_zakaz'];
+        $info_order['price'] = $zakaz['price'];
         R::store($zakaz);
-        $succ = "Заказ успешно опалачен";
         unset($test);
         unset($_SESSION['test']);
+        setcookie('cart', null, -1, '/');
       }
         
      }

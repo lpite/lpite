@@ -109,9 +109,9 @@ $errors[] = "Пароль не верный";
    	}
    	 ?>"> 
    		<div class="order-table" id="<?php echo $order['id']?>">
-   					<span >№ заказа <?php echo $order['id'].' ';  ?> </span>
+   					<span >заказ №<?php echo $order['id_zakaz'].' ';  ?> </span>
    				 
-   					<span>  <?php  echo ' '.substr($order['time'], 0,16).' '; ?> </span>
+   					<span>  <?php  echo 'от '.substr($order['time'], 0,10).'г. '; ?> </span>
    				 
    					<span> Сумма заказа <?php  echo $order['price'];
 

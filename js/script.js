@@ -4,7 +4,6 @@ const buy_btn = document.querySelectorAll(".buy-btn");
 const cart_delete = document.querySelectorAll('.cart-delete');
 const select = document.querySelectorAll('.select');
 const full_price_out = document.querySelector('.full-price');
-const payment_radio_div = document.querySelectorAll('.payment-radio-div');
 const sort = document.querySelector('.Sort');
 const products_on_page = document.querySelector('.products-on-page');
 const header_popup = document.getElementById("header-popup");
@@ -142,7 +141,7 @@ Array.from(buy_btn).forEach(link => {
     let articul = this.getAttribute('data-id');
     let check = document.getElementById(articul);
     if (check.classList.contains('hidden')) {
-        var text = document.getElementById(articul + '.1').value / 1;
+        var text = document.getElementById(articul + '.2').value / 1;
     } else {
         var text = document.getElementById(articul).value / 1;
     }
@@ -184,10 +183,10 @@ Array.from(select).forEach(link => {
       let articul = this.getAttribute('id');
     let value = document.getElementById(articul).value;
     if (value == '...') {
-
+ console.log(document.getElementById(articul + '.2'));
         document.getElementById(articul).classList.add('hidden');
-        document.getElementById(articul + '.1').classList.remove('hidden');
-
+        document.getElementById(articul + '.2').classList.remove('hidden');
+     
     }
     });
 });
@@ -199,12 +198,12 @@ function fullprice() {
     let price;
     let available;
     for (var w in cart) {
-        let x = document.getElementById(w + '.2');
+        let x = document.getElementById(w + '.1');
         if (x) {
         price = x.getAttribute('data-price');
         available = x.getAttribute('data-available');
         if (available >= 1) {
-
+          
             full_price += price * cart[w];
         }
       
@@ -238,19 +237,6 @@ products_on_page.addEventListener('change',function(){
     document.getElementById('products-on-page-button').click();
     document.cookie = "pdonpg= " + pdonpg_value + "; expires=01 Jan 2021 00:00:00 UTC;path=/";
 });
-
-
-
-payment_radio_div &&
-Array.from(payment_radio_div).forEach(link => {
-    link.addEventListener('click' ,function(){
-  const id = link.getAttribute('id');
-    document.getElementById(id + '.1').click();
-    });
- 
-
-    });
-
 
 
 function myFunction() {

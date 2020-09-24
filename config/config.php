@@ -41,7 +41,7 @@ $phones =
 'contacts/' => 'pages/contacts.php',
 'sto/' =>'pages/STO.php',
 'product/' => 'pages/product.php',
-'admin/' => 'admin/admin.php'
+'admin/' => 'pages/admin/admin.php'
  ];
 
  $delivery = ['доставка 1','доставка 2' ,'доставка 3', 'доставка 4'];
@@ -50,52 +50,9 @@ $phones =
 
 
 
- $navigation = [
-
-  [
-    'link'=>'/',
-    'name'=>'Главная',
-    'class'=>'show'
-  ]
-  ,
- [
-    'link'=>'/about/',
-    'name'=>'О нас',
-     'class'=>'show'
-  ]
-  ,
-  [
-    'link'=>'/paydelivery/',
-    'name'=>'Оплата и доставка',
-    'class'=>'toggle-nav'
-  ]
-  ,
-  [
-    'link'=>'/contacts/',
-    'name'=>'Контакты',
-     'class'=>''
-  ]
-  ,
-  [
-    'link'=>'/waranty/',
-    'name'=>'Гарантии',
-    'class'=>'show'
-  ]
-  ,
-  [
-    'link'=>'/login/',
-    'name'=>"$name",
-    'class'=>'white'
-  ]
-  ,
-    [
-    'link'=>'&logout',
-    'name'=>'Выйти',
-    'class'=>'white'
-    ]
+ 
 
   
   
-  
-]
+
  ?>

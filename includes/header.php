@@ -66,14 +66,14 @@
 
 
        <div style="display: flex; align-items: flex-start; width: 100%; ">
-         <div id="main-img" class="main-img-div">
+         <div id="main-img" class="main-img-div"  title="На главную">
            <a href="/">
              <img class="main-img" alt="На главную" src="/img/icons/main-img.jpg">
            </a>
          </div>
 
          <?php search_div(); ?>
-      <div class="phone-div">
+      <div class="phone-div"  title="">
         <div class="phone phone-hover">
           <img class="phone-img" alt="Телефон" src="/img/icons/phone.svg">
           <span><?php echo $phones[0]; ?></span>
@@ -95,12 +95,14 @@
         </div>
         
       </div>
- <div class="cart-div" title="Корзина">
-  <a href="/cart/">
+        <a href="/cart/">
+       <div class="cart-div" title="Корзина">
+ 
   <img alt="Корзина" src="/img/icons/cart-dash.svg">
-  </a>
+  
   <div class="mini-cart"></div>
  </div>
+ </a>
      </div>    
      </header>
      <div class="header-popup hidden-opacity" id="header-popup">
@@ -139,12 +141,14 @@
         </div>
         
       </div>
+       <a href="/cart/">
        <div class="cart-div" title="Корзина">
-  <a href="/cart/">
+ 
   <img alt="Корзина" src="/img/icons/cart-dash.svg">
-  </a>
+  
   <div class="mini-cart mini-cart1"></div>
  </div>
+ </a>
 
      </div>
      <div id="mobile__menu" class="overlay">

@@ -92,8 +92,9 @@ if (isset($_POST['select']) ? $_POST['select'] : 0) {
             } else {
                 buttons();  
                 foreach ($products as  $product) {
-
-                    include "includes/product-div.php";
+               prod_cart('product');
+                    // include "includes/product-div.php";
+               
                 }
 
 

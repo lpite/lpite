@@ -33,7 +33,8 @@ if($route === 'cart/'){
 foreach ($cart as $key => $value) {
 $products = R::find('tovar','id = ?',array($key));
 foreach ($products as $product ) {
-   cart_div();
+ 
+   prod_cart('cart');
    $full_price += $product['price'] * $value;
 
 
@@ -46,7 +47,7 @@ foreach ($products as $product ) {
   
 
   <form action="/cart/checkout/" method="post">
-    <button class="tovar-buy-button button" name="next" value="<?php echo($full_price) ?>"><span>Оплатить</span></button>
+    <button class="tovar-buy-button button" name="next" value="<?php echo($full_price) ?>"><span>Заказать</span></button>
   </form>
   </div>
 <?php
@@ -85,18 +86,29 @@ foreach ($products as $product ) {
          }
 
 }elseif ($route === 'cart/payment/') {
-  ?>
-                        <div>
-                            <form method="post" action="/cart/delivery/">
-                                <div class="payment-radio-div" id="1">
-                                    <input required value="1" type="radio" id="1.1" class="payment-radio" name="payment" />
-                                    <img src="/img/test.jpg" class="payment-radio-img">
-                                    <label for="1.1">wefwef</label>
-                                </div>
-   <?php 
 
+?>
+    <div>
+                            <form method="post" action="/cart/delivery/">
+                              <?php   foreach ($payment as $key => $value) { 
+                               
+                              ?>
+
+    
+  
+  
+                      
+                                <div class="payment-radio-div">
+                                    <input required value="<?php  echo($key); ?>" type="radio" id="<?php  echo($key); ?>" class="payment-radio" name="payment" />
+                                    <label for="<?php  echo($key); ?>">
+                                    <img src="/img/test.jpg" class="payment-radio-img">
+                                    wefwef</label>
+                                </div>
+                              
+   <?php 
+}
                                ?>
-                                <button name="pay" class="tovar-buy-button button" >Далее</button>
+                                  <button name="pay" class="tovar-buy-button button" >Далее</button>
 
                             </form>
 
@@ -114,45 +126,30 @@ foreach ($products as $product ) {
 
 
 
-                            <form method="post" action="/cart/lastcheck/">
+                            <form method="post" name="delivery" action="/cart/lastcheck/">
 
                               <?php 
 
 foreach ($delivery as $key => $value) {
   ?>
                                 <div class="payment-radio-div" id="<?php echo($key) ?>">
-                                    <input required value="<?php echo($key) ?>" type="radio" id="<?php echo($key) ?>.1" class="payment-radio" name="payment" />
+                                    <input required 
+                                    value="<?php echo($key) ?>" 
+                                    type="radio" 
+                                    id="<?php echo($key) ?>.1" 
+                                    class="payment-radio" 
+                                    name="delivery" 
+                                    />
                                     <img src="/img/test.jpg" class="payment-radio-img">
                                     <label for="<?php echo($key) ?>"><?php echo $value; ?></label>
                                 </div>
    <?php 
 }
-                               ?>
-                               
-                               <!--  <div class="payment-radio-div" id="0">
-
-                                    <input value="0" type="radio" id="0.1" class="payment-radio" name="delivery" />
-                                    <img src="/img/test.jpg" class="payment-radio-img">
-                                    <label for="0">1</label>
-                                </div>
-                                <div class="payment-radio-div" id="1">
-
-                                    <input value="1" type="radio" id="1.1" class="payment-radio" name="delivery" />
-                                    <img src="/img/test.jpg" class="payment-radio-img">
-                                    <label for="1">2</label>
-                                </div>
-                                <div class="payment-radio-div" id="2">
-                                    <input value="2" type="radio" id="2.1" class="payment-radio" name="delivery" />
-                                    <img src="/img/test.jpg" class="payment-radio-img">
-                                    <label for="2">3</label>
-                                </div>
-                                <div class="payment-radio-div" id="3">
-
-                                    <input value="3" required type="radio" id="3.1" class="payment-radio" name="delivery" />
-                                    <img src="/img/test.jpg" class="payment-radio-img">
-                                    <label for="3">4</label>
-                                </div> -->
-                                <button name="delivery-btn" class="tovar-buy-button button"><span>Далее</span></button>
+                               ?>                        
+    
+                                <button name="delivery-btn" class="tovar-buy-button button">
+                                  <span>Далее</span>
+                                </button>
 
                             </form>
 
@@ -170,21 +167,65 @@ foreach ($delivery as $key => $value) {
                      
                       foreach ($products as $key => $value) {
                          $product_q = R::find('tovar','id= ?',array($key));
-                      
- 
-                      foreach ($product_q as $product) {
-                          ?>
-                          <div>
-                              <a href="/product/&<?php echo $product['id'] ?>">
-                                  <?php 
-                                    echo $product['name'].' кол-во:';
-                                    echo $key.'    ';
-                                    echo $product['price'].'грн';
-                                   ?>
-                              </a>
+                       foreach ($product_q as $prod) {
+                        ?>
+                        <div class="order-div">
+                          <div class="order">
+                                   <table>
+                                          <tbody> 
+                                            <tr>
+                                              <b><a href="/product/&id=<?php echo($prod['id']) ?>" target="self"><?php echo $prod['name']; ?></a></b><br>
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <span>Цена</span>
+                </td>
+                <td>
+                  <span>Кол-во</span>
+                </td>
+                <td>
+                  <span>Сумма</span>
+                </td>
+              </tr>
+              <tr>
+                <td><?php echo $prod['price'];
+                if (!strpos($prod['price'], '.')) {
+                 echo '.00';
+                } 
+                  
+                 ?></td>
+                <td><?php echo $value; ?></td>
+                <td><?php
+                $full = $prod['price']*$value;
+                echo $prod['price']*$value;
+                 if (!strpos($full,'.')) {
+  echo '.00';
+}
+                 
+
+
+                 ?></td>
+              </tr>
+              </tbody>
+            </table>
+
+                        <?php
+          }
+          
+          
+               
+        }
+         ?>
+                                            </tr>
+                                          </tbody>
+                                     </table>
                           </div>
-                          <?php } 
-                          } ?>
+                        </div>
+                        <?php
+                       
+                         
+                           ?>
                           
                          <div>
                             <h2>Оплата</h2>
@@ -192,7 +233,9 @@ foreach ($delivery as $key => $value) {
                          </div>
                          <div>
                             <h2>Доставка</h2>
-                             <?php echo  $delivery[$test['delivery']]; ?>
+                             <?php echo  $delivery[$test['delivery']];
+
+                              ?>
                              </div>
                          </div>
                          <h2>
@@ -202,18 +245,23 @@ foreach ($delivery as $key => $value) {
                          
                           <form method="post">
 
-                          <button class="button tovar-buy-button" name="last"><span>Оплатить</span></button>
+                          <button class="button tovar-buy-button" name="last"><span>Оформить</span></button>
 <a href="/cart/">Редактировать</a>
                       </form>
                            <?php 
                       }
                       else{
-                        echo 'заказ оплачен';
+                        echo 'Заказ оформлен ';
+                        echo('№ ');
+                        echo($info_order['id']);
+                        echo(' Сумма ');
+                        echo($info_order['price']);
                       }
 
-}
-}
 
+
+}
+}
 ?>
   
      </div>

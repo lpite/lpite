@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /js/
 Disallow: /css/
 Disallow: /includes/
-Disallow: /admin/
+Disallow: /pages/admin/

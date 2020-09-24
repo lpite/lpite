@@ -1,6 +1,6 @@
 <?
-
 include "includes/include.php";
+print_r($info_order);
 if (isset($_GET['route'])) {
 	$m = $_GET['route'];
 }
@@ -28,78 +28,3 @@ foreach ($routes as $key => $value) {
 	}
 	
 	
-
-
-
-// switch ($m) {
-// 	case '':
-// 		require'pages/main.php';
-// 		break;
-
-// 	case '/':
-// 		require'pages/main.php';
-// 		break;
-
-// 	case 'search/':
-// 		require 'pages/search-test.php';
-// 		break;
-
-// 	case 'instrument/':
-// 		require 'pages/products.php';
-// 		break;
-
-// 	case 'maslo/':
-// 		require 'pages/products.php';
-// 		break;
-
-// 	case 'parts/':
-// 		require 'pages/products.php';
-// 		break;
-
-// 	case 'cart/':
-// 			require 'pages/cart.php';
-// 			break;
-//     case 'cart/checkout':
-// 			require 'pages/cart-checkout1.php';
-// 			break;
-
-// 	case 'cart/payment':
-// 			require 'pages/cart-payment.php';
-// 			break;
-
-// 	case 'cart/delivery':
-// 			require 'pages/cart-deliv.php';
-// 			break;	
-
-// 	case 'login/':
-// 			require 'pages/login.php';
-// 			break;
-
-// 	case 'registration/':
-// 			require 'pages/registration.php';
-// 			break;
-
-// 	case 'product/':
-// 			require 'pages/product.php';
-// 			break;
-
-// 	case 'contacts/':
-// 			require 'pages/contacts.php';
-// 			break;
-// 	case 'sto/':
-// 			require 'pages/STO.php';
-// 			break;		
-			
-// 	default:
-//         http_response_code(404);
-//         require 'pages/404.php';
-//         break;
-
-		
-		
-// }
-
-
-
-
- ?>

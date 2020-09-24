@@ -82,7 +82,7 @@ input {
 .nav {
   transition: 0.4s ease-in-out;
   width: 100%;
-  height: 35px;
+  height: 25px;
   background: var(--main-color);
   align-items: center;
   display: flex;
@@ -106,7 +106,7 @@ input {
   border-right: none;
   align-items: center;
   transition: 0.4s ease-in-out;
-  padding: 3px 10px 3px 10px;
+  padding: 0.5px 10px 0.5px 10px;
   margin-left:15px;
 }
 
@@ -515,6 +515,7 @@ input {
   font-size: 21px;
   transition: 0.3s ease-in-out;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .tovar-input {
@@ -756,7 +757,7 @@ input {
   border-bottom:2px solid dodgerblue;
 }
 .order-div{
-  width: 465px;
+  width: 535px;
 }
 .order-table{
   display: flex;
