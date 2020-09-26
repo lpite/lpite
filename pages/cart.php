@@ -19,7 +19,7 @@ $route = $_GET['route'];
 
     <main>
 
-        <?php name_page_div(); ?>
+      <div class="name-page-div"><span class="name-page"><?php echo($name_page)  ?></span></div>
    
     <div class="main-cart">
     <?php

@@ -5,6 +5,7 @@ require_once 'all_function.php';
 require_once 'connDB.php';
 require_once 'test-div.php';
 session_start();
+
 $products_on_page_cookie = (int)$_COOKIE['pdonpg'];
 
 if ($products_on_page_cookie === 15 or $products_on_page_cookie === 30  or $products_on_page_cookie === 50) {

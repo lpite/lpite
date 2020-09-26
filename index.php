@@ -1,10 +1,9 @@
 <?
 include "includes/include.php";
-print_r($info_order);
 if (isset($_GET['route'])) {
 	$m = $_GET['route'];
 }
-
+echo($m);
 if (!isset($_GET['id'])) {
   $id_page = 1;
 } else {
@@ -19,7 +18,8 @@ if (!isset($_GET['id'])) {
 
 foreach ($routes as $name_route => $value) {
 	if ($m == $name_route) {
-		$name_page = $name_page_arr[$name_route];
+		$name_page = $name_page_arr["$name_route"];
+		echo($name_page);
 		require_once "$value";
 	}
 

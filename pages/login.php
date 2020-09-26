@@ -41,10 +41,11 @@ $errors[] = "Пароль не верный";
  		<?php include($__ROOT__."includes/header.php") ?>
 
  		<main>
+
  			 
  			 	 	<?php if(!isset($_SESSION['log_in'])){
 ?>
-<div class="name-page-div"><span><?php echo($name_page['login']) ?></span></div>
+<div class="name-page-div"><span><?php echo($name_page) ?></span></div>
  			 	 <div class="registration-div">
  	<form method="post" action="">
 
@@ -72,7 +73,7 @@ $errors[] = "Пароль не верный";
 	
 	 ?></span>
 	 <span class="green"><?php echo($sucessfull);	 ?></span></div>
-	<button class="tovar-buy-button button" name="login" type="submit"><span><?php echo($name_page['login']) ?></span></button>
+	<button class="tovar-buy-button button" name="login" type="submit"><span><?php echo($name_page) ?></span></button>
 	<span><a href="/registration/">Нет аккаунта?</a></span>
 
 

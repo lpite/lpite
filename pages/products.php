@@ -71,16 +71,13 @@ if (isset($_POST['select']) ? $_POST['select'] : 0) {
 <body>
     <div class="container">
         <?php
-
         include($__ROOT__."includes/header.php")
         ?>
         <main>
-            <div class="name-page-div"><span><?php echo $name_page[$category] ?> </span></div>
+         <div class="name-page-div"><span class="name-page"><?php echo($name_page)  ?></span></div>
+
             <div class="sort-div">
-
-                <?php 
-
-                sort_div(); ?>
+        <?php  sort_div(); ?>
             </div>
             <?php
  if (empty($products)) {
