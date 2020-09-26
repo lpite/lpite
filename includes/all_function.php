@@ -77,5 +77,7 @@ function sort_div(){
   <?php
 }
 
-
+function name_page_div(){
+echo('  <div class="name-page-div"><span class="name-page">'.$name_page.'</span></div>');
+}
 ?>

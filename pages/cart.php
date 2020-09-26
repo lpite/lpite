@@ -19,7 +19,7 @@ $route = $_GET['route'];
 
     <main>
 
-        <div class="name-page-div"><span class="name-page">Корзина </span></div>
+        <?php name_page_div(); ?>
    
     <div class="main-cart">
     <?php

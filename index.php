@@ -17,8 +17,9 @@ if (!isset($_GET['id'])) {
 }
 
 
-foreach ($routes as $key => $value) {
-	if ($m == $key) {
+foreach ($routes as $name_route => $value) {
+	if ($m == $name_route) {
+		$name_page = $name_page_arr[$name_route];
 		require_once "$value";
 	}
 
