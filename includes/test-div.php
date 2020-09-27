@@ -23,7 +23,7 @@ function prod_cart($type){
   </div>
 
   <div class="tovar-button-price">
-    <span class="tovar-price"><?php echo $product['price'] ?>грн</span>
+    <span class="tovar-price"><?php echo (sprintf('%0.1f',$product['price']/27*30).'0' ) ?>грн</span>
     <div class="category-margin"></div>
 
     <div class="category-margin"></div>
@@ -38,7 +38,7 @@ function prod_cart($type){
       <button class="tovar-buy-button button buy-btn" data-id="<?php echo $product['id'] ?>"><span>Купить</span></button>
       <div class="category-margin"></div>
       <select id="<?php echo $product['id'] ?>" class="tovar-select select">
-        <option value="1">1</option>
+        <option  value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4</option>
@@ -46,7 +46,7 @@ function prod_cart($type){
         <option value="10">10</option>
         <option value='...'>...</option>
       </select>
-      <input type="number" max="9999" min="1" required class="tovar-input hidden" id="<?php echo $product['id'] ?>.2">
+      <input autofocus type="number" max="9999" min="1" required class="tovar-input hidden" id="<?php echo $product['id'] ?>.2">
     <?php
     } else {
     	?>

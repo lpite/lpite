@@ -64,7 +64,6 @@ if (isset($_POST['select']) ? $_POST['select'] : 0) {
 <html>
 
 <head>
-    <title><?php echo $name_page[$category] ?></title>
     <?php include($__ROOT__."includes/head.php") ?>
 </head>
 

@@ -82,7 +82,7 @@ input {
 .nav {
   transition: 0.4s ease-in-out;
   width: 100%;
-  height: 25px;
+  height: 30px;
   background: var(--main-color);
   align-items: center;
   display: flex;
@@ -123,11 +123,6 @@ input {
   color: var(--white-color);
 }
 
-/*.nav-ul span {
-  color: var(--white-color);
-
-}
-*/
 .cart-header {
   display: flex;
   align-items: center;
@@ -140,8 +135,6 @@ input {
 
 .mini-cart {
   font-size: 13px;
-  /*margin: 0 0 0 3px;*/
-  /*float: left;*/
   display: flex;
   width: 21px;
   height: 21px;
@@ -594,7 +587,8 @@ input {
   align-items: flex-start;
   display: flex;
   float: left;
-  justify-content: center;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 
 .page-tovar-price {
@@ -649,7 +643,7 @@ input {
 .page-tovar-input {
   width: 39px;
   font-size: 23px;
-  border: 3px solid var(--main-color);
+  border: 2px solid var(--main-color);
   align-items: center;
   border-radius: 0  5px 5px 0 ;
 }
@@ -737,16 +731,20 @@ input {
   transition: 0.2s ease-in-out;
   width: 400px;
   border-radius: 5px;
-  cursor: pointer;
+  
 }
-.payment-radio-div:hover {
-  transition: 0.2s ease-in-out;
-  background: dodgerblue;
-}
+
 .payment-radio-div img{
    width: 50px
 }
-
+.payment-radio-div label{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+}
 .contacts-div{
   display: flex;
   height: 50px;
@@ -862,7 +860,10 @@ width: 100%;
     width: 100px;
   
   }
-
+.main-img-div {
+   
+    width: 110px;
+  }
   .nav-ul {
     display: none;
   }
@@ -940,10 +941,7 @@ width: 100%;
     font-size: 11pt;
   }
 
-  .main-img-div {
-    height: 35px;
-    width: 95px;
-  }
+  
   .header-popup-img-div{
     width: 100px;
    height: 35px;

@@ -65,7 +65,7 @@ if (isset($_POST['select']) ? $_POST['select'] : 0) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Поиск</title>
+    
     <?php include "includes/head.php" ?>
 </head>
 

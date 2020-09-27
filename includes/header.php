@@ -34,7 +34,9 @@
               </span>
               </a>
             </li>
-<?php $name = (isset($_SESSION['log_in'])) ? substr($_SESSION['log_in']->email,0,16).'...' : 'Войти' ; ?>
+<?php 
+$user = $_SESSION['log_in'];
+$name = (isset($_SESSION['log_in'])) ? substr($user['email'],0,16).'...' : 'Войти' ; ?>
           <li>
             <a href="/login/">
               <span class="white">

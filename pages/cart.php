@@ -6,7 +6,7 @@ $route = $_GET['route'];
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Корзина</title>
+  
     <?php include($__ROOT__."includes/head.php")?>
 </head>
 <body>
@@ -99,8 +99,14 @@ foreach ($products as $product ) {
   
                       
                                 <div class="payment-radio-div">
-                                    <input required value="<?php  echo($key); ?>" type="radio" id="<?php  echo($key); ?>" class="payment-radio" name="payment" />
-                                    <label for="<?php  echo($key); ?>">
+                                  <label for="<?php  echo($key); ?>">
+                                    <input required 
+                                    value="<?php  echo($key); ?>" 
+                                    type="radio" 
+                                    id="<?php  echo($key); ?>" 
+                                    class="payment-radio" 
+                                    name="payment" />
+                                    
                                     <img src="/img/test.jpg" class="payment-radio-img">
                                     wefwef</label>
                                 </div>
@@ -132,16 +138,18 @@ foreach ($products as $product ) {
 
 foreach ($delivery as $key => $value) {
   ?>
-                                <div class="payment-radio-div" id="<?php echo($key) ?>">
+                               
+                                <div class="payment-radio-div">
+                                  <label for="<?php  echo($key); ?>">
                                     <input required 
-                                    value="<?php echo($key) ?>" 
+                                    value="<?php  echo($key); ?>" 
                                     type="radio" 
-                                    id="<?php echo($key) ?>.1" 
+                                    id="<?php  echo($key); ?>" 
                                     class="payment-radio" 
-                                    name="delivery" 
-                                    />
+                                    name="delivery" />
+                                    
                                     <img src="/img/test.jpg" class="payment-radio-img">
-                                    <label for="<?php echo($key) ?>"><?php echo $value; ?></label>
+                                    wefwef</label>
                                 </div>
    <?php 
 }
@@ -241,7 +249,11 @@ foreach ($delivery as $key => $value) {
                          <h2>
                            Сумма
                          </h2>
-                         <span><?php echo $test['price'];?> грн</span>
+                         <span><?php echo $test['price']; 
+                         if (!strpos($test['price'],'.')) {
+                                    echo '.00'; 
+}
+                                    ?> грн</span>
                          
                           <form method="post">
 
@@ -255,7 +267,7 @@ foreach ($delivery as $key => $value) {
                         echo('№ ');
                         echo($info_order['id']);
                         echo(' Сумма ');
-                        echo($info_order['price']);
+                        echo($info_order['price'].'грн');
                       }
 
 

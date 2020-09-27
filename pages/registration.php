@@ -48,7 +48,7 @@ if (isset($data['signup'])) {
 		<?php include "includes/header.php" ?>
 
 		<main>
-			<div class="name-page-div"><span class="name-page"><?php echo ($name_page['singup']) ?></span></div>
+			<div class="name-page-div"><span class="name-page"><?php echo ($name_page) ?></span></div>
 			<div class="registration-div">
 				<form method="post">
 
@@ -104,7 +104,7 @@ if (isset($data['signup'])) {
 						<div class="category-margin"></div>
 
 						</div>
-						<button class="tovar-buy-button button" name="signup" type="submit"><?php echo ($name_page['singup']) ?></button>
+						<button class="tovar-buy-button button" name="signup" type="submit"><?php echo ($name_page) ?></button>
 						<span><a href="/login/">Уже есть аккаунт?</a></span>
 					</div>
 

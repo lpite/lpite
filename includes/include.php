@@ -39,7 +39,7 @@ if (isset($_COOKIE['cart'])) {
 
 }
 $data = $_POST;
-
+$log_in = $_SESSION['log-in'];
 if(isset($data['next'])){
 $test = [
   'price' => "$data[next]"
@@ -54,8 +54,8 @@ if (isset($data['check'])){
     $test['id_user'] = '';
     $test['comment'] = $data['comment'] ;
     }else{    
-      $name = $_SESSION['log_in']->email;
-      $id  = $_SESSION['log_in']->id;
+      $name = $log_in['email'];
+      $id  = $log_in['id'];
        $test['name'] = $name;
     $test['id_user'] = $id;
     $test['comment'] = $data['comment'] ;

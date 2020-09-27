@@ -44,20 +44,14 @@ foreach ($products as  $product) {
 
                 <div class="name-page-div"><span class="name-page"><?php echo $product['name']; ?></span></div>
                 <div class="page-tovar-img-div" id="page-tovar-img-div">
-                   <picture  class="page-tovar-img-div" >
-          <source srcset="../img/products/<?php
+                    <?php  $image = ($product['picture']) ? $product['picture'] : 'no-pic.jpg' ;  ?>
+               <img 
+               src="/img/products/<?php echo($image) ?>" 
+               alt="<?php echo $product['name']; ?>" 
+               class="page-tovar-img"
 
-                                if (empty($product['picture'])) {
-                                  echo ('no-pic.jpg');
-                                }
-                                echo $product['picture'] ?>"type="image/webp">
-                               <img alt='<?php echo $product['name'] ?>'class="page-tovar-img" src="../img/<?php
+               />
 
-                                if (empty($product['picture'])) {
-                                  echo ('no-pic.jpg');
-                                }
-                                echo $product['picture'] ?>">
-        </picture>
                   </div>
                 <div class="page-tovar-button-price-div">
                     <div class="page-tovar-price-div"><span class="page-tovar-price">Цена: <?php echo $product['price'];
@@ -78,13 +72,24 @@ foreach ($products as  $product) {
                                 <option>10</option>
                                 <option>...</option>
                             </select>
-                            <input type="number" class="hidden page-tovar-input" id="<?php echo  $product['id']; ?>.1" name="">
+                            <input type="number" class="hidden page-tovar-input" id="<?php echo  $product['id']; ?>.2" name="">
                         </div>
                     </div>
-                    <div>
+                   
+<div>
+                        <table>
+                            <thead>
+                                характ
+                            </thead>
+                            <tbody>
+                                <tr><td>Производ</td><td><?php echo $product['proizvod']; ?></td></tr>
+                                <tr><td>Аркт</td><td><?php echo $product['articyl']; ?></td></tr>       
+                                <tr><td>rfb</td><td><?php echo $product['id_kat']; ?></td></tr>
+                            </tbody>
+                        </table>
                     </div>
-
                 </div>
+
                 <div class="page-tovar-description-div">
                     <div class="page-tovar-description">
                         <h2>Описание</h2>

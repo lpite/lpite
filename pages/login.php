@@ -7,8 +7,10 @@ if (isset($data['login'])) {
 	if($user)
 	{
 		if(password_verify($data['password'], $user->password)){
+unset($user['ip']);
+unset($user['password']);
+$_SESSION['log_in'] =  $user->export();
 
-$_SESSION['log_in'] =  $user;
 
 		}else{
 $errors[] = "Пароль не верный";
@@ -20,7 +22,7 @@ $errors[] = "Пароль не верный";
 	}
 	
 }
-
+$login = $_SESSION['log_in'];
 ?>
 
 
@@ -28,10 +30,10 @@ $errors[] = "Пароль не верный";
  <html>
  <head>
  	<title><?php 
- 	if (!isset($_SESSION['log_in']->email)) {
- 		echo($name_page['login']);
+ 	if (!isset($login['email'])) {
+ 		echo($name_page);
  	}
-      echo($_SESSION['log_in']->email) ?>
+      echo($login['email']) ?>
  	</title>
 
  	<?php include($__ROOT__."includes/head.php") ?>
@@ -86,14 +88,14 @@ $errors[] = "Пароль не верный";
  			 	 		 ?>
  			 	 		 <div class="name-page-div"><span class="name-page"><?php echo($_SESSION['log_in']->email) ?></span></div>
  			 	 <div class="registration-div">
-<p>Имя:<?php echo($_SESSION['log_in']->name) ?></p>
-<p>Фамилия:<?php echo($_SESSION['log_in']->sur_name) ?></p>
+<p>Имя:<?php echo($login['name']) ?></p>
+<p>Фамилия:<?php echo($login['sur-name']) ?></p>
 
 <div style="display: flex; flex-direction: column; align-self: center; ">
 		<span>История заказов</span>
         
 	<?php 
-   $orders = R::find('test','id_user = ?',array($_SESSION['log_in']->id)); 
+   $orders = R::find('test','id_user = ?',array($login['id'])); 
    if (!$orders) {
         echo "Нет заказов"; 
        }    

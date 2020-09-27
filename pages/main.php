@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Главная</title>
+    
  <?php include "includes/head.php"?>
 </head>
 <body>
@@ -13,7 +13,7 @@
     ?>
 
     <main>
-        <div class="name-page-div"><span class="name-page">Главная </span></div>
+        <div class="name-page-div"><span class="name-page"><?php echo($name_page) ?> </span></div>
 
             <a href="/instrument/">
                 <div class="category-div">
