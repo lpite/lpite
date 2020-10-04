@@ -3,7 +3,7 @@ require_once($__ROOT__.'rb.php') ;
 require_once($__ROOT__.'config/config.php');
 require_once 'all_function.php';
 require_once 'connDB.php';
-require_once 'test-div.php';
+require_once 'section.php';
 session_start();
 
 $products_on_page_cookie = (int)$_COOKIE['pdonpg'];
@@ -13,6 +13,7 @@ if ($products_on_page_cookie === 15 or $products_on_page_cookie === 30  or $prod
 }else{
   $products_on_page = 15;
 }
+
 
 function getUserIpAddr()
 {
@@ -29,43 +30,48 @@ function getUserIpAddr()
 }
 date_default_timezone_set('Europe/Kyiv');
 
-
-
+ 
+ 
 if (isset($_COOKIE['cart'])) {
-  $cart = $_COOKIE['cart'];
+ $cart = $_COOKIE['cart'];
   $cart_decode = json_decode($cart ,true);
-  foreach ($cart_decode as $key => $value) {
-  }
+  
 
 }
 $data = $_POST;
-$log_in = $_SESSION['log-in'];
-if(isset($data['next'])){
-$test = [
-  'price' => "$data[next]"
-] ;
-$_SESSION['test'] = $test;
-}
+$log_in = $_SESSION['log_in'];
+
+// if(isset($data['next'])){
+// $test = [
+//   'price' => "$data[next]"
+// ] ;
+// $_SESSION['test'] = $test;
+// if (isset($log_in)) {
+//  // header('Location: /cart/checkout/');
+// }else{
+//   $error = 'Войдите в аккаунт';
+// }
+
+
+// }
 //кнопка проверки
 if (isset($data['check'])){
+     if (isset($_SESSION['log_in'])) {
   $test = $_SESSION['test'];
-	 if (!isset($_SESSION['log_in'])) {
-    $test['name'] = $data['email_phone'];
-    $test['id_user'] = '';
-    $test['comment'] = $data['comment'] ;
-    }else{    
-      $name = $log_in['email'];
+
+    $name = $log_in['email'];
       $id  = $log_in['id'];
        $test['name'] = $name;
     $test['id_user'] = $id;
     $test['comment'] = $data['comment'] ;
-  }
+    
   $test['ip'] = getUserIpAddr();
   $test['tovar'] = $cart;
   
 	$_SESSION['test'] = $test;
-
-     }
+}
+}
+     
     //обрабока кнопки оплаты
      if (isset($data['pay'])) {
      	$test = $_SESSION['test'];
@@ -97,9 +103,15 @@ if (isset($data['check'])){
         $info_order['id'] = $zakaz['id_zakaz'];
         $info_order['price'] = $zakaz['price'];
         R::store($zakaz);
+        
+
+
         unset($test);
         unset($_SESSION['test']);
         setcookie('cart', null, -1, '/');
+ 
+
+
       }
         
      }

@@ -25,7 +25,7 @@
             </a>
             <a href="/maslo/">
                 <div class="category-div">
-                    <img alt="Масло" src="/img/icons/oil-cat.webp">
+                    <img alt="Масло" src="/img/icons/oil-cat.png">
                     <div class="category-margin">
                     </div>
                     <span>Жидкости и масла</span>

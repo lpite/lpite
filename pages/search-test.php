@@ -15,11 +15,28 @@ if (isset($_POST['submit'])) {
         $_SESSION['search'] = $search;
         
         $search_s = $_SESSION['search'];
-        $products = R::getAll("SELECT * FROM `tovar` WHERE `id` LIKE ? OR `name` LIKE ? OR `articyl` LIKE ? OR `id_kat` LIKE ? ORDER BY id  LIMIT ?,? ", array($search_s,$search_s,$search_s,$search_s, $T, $products_on_page));
+
+
+if (!isset($_COOKIE['sort'])) {
+   $products = R::getAll("SELECT * FROM `tovar` WHERE `id` LIKE ? OR `name` LIKE ? OR `articyl` LIKE ? OR `id_kat` LIKE ? ORDER BY name LIMIT ?,? ", array($search_s,$search_s,$search_s,$search_s, $T, $products_on_page));
+} else {
+    if ($_COOKIE['sort'] == 'a_z') {
+       $products = R::getAll("SELECT * FROM `tovar` WHERE `id` LIKE ? OR `name` LIKE ? OR `articyl` LIKE ? OR `id_kat` LIKE ? ORDER BY name LIMIT ?,? ", array($search_s,$search_s,$search_s,$search_s, $T, $products_on_page));
+    } elseif ($_COOKIE['sort'] == 'z_a') {
+       $products = R::getAll("SELECT * FROM `tovar` WHERE `id` LIKE ? OR `name` LIKE ? OR `articyl` LIKE ? OR `id_kat` LIKE ? ORDER BY name DESC LIMIT ?,? ", array($search_s,$search_s,$search_s,$search_s, $T, $products_on_page));
+    } elseif ($_COOKIE['sort'] == 'priceMax') {
+        $products = R::getAll("SELECT * FROM `tovar` WHERE `id` LIKE ? OR `name` LIKE ? OR `articyl` LIKE ? OR `id_kat` LIKE ? ORDER BY price LIMIT ?,? ", array($search_s,$search_s,$search_s,$search_s, $T, $products_on_page));
+    } elseif ($_COOKIE['sort'] == 'priceMin') {
+         $products = R::getAll("SELECT * FROM `tovar` WHERE `id` LIKE ? OR `name` LIKE ? OR `articyl` LIKE ? OR `id_kat` LIKE ? ORDER BY price DESC LIMIT ?,? ", array($search_s,$search_s,$search_s,$search_s, $T, $products_on_page));
+    } elseif ($_COOKIE['sort'] == '') {
+         $products = R::getAll("SELECT * FROM `tovar` WHERE `id` LIKE ? OR `name` LIKE ? OR `articyl` LIKE ? OR `id_kat` LIKE ? ORDER BY name LIMIT ?,? ", array($search_s,$search_s,$search_s,$search_s, $T, $products_on_page));
+    }
+}
+
     }
 } else {
     $search_s = $_SESSION['search'];
-    $products = R::getAll("SELECT * FROM `tovar` WHERE `id` LIKE ? OR `name` LIKE ? OR `articyl` LIKE ? OR `id_kat` LIKE ? ORDER BY id  LIMIT ?,? ",  array($search_s,$search_s,$search_s,$search_s, $T, $products_on_page));
+    $products = R::getAll("SELECT * FROM `tovar` WHERE `id` LIKE ? OR `name` LIKE ? OR `articyl` LIKE ? OR `id_kat` LIKE ?  LIMIT ?,? ",  array($search_s,$search_s,$search_s,$search_s, $T, $products_on_page));
 }
 
 
@@ -32,12 +49,12 @@ $count_pages = ceil($count_pages / $products_on_page);
 if ($id_page > $count_pages) {
     $id_page = 1;
     if ($count_pages != 0 ) {
-     header('Location:&id=1');
-        echo($count_pages);
-}
-
-   
-}
+     header('Location:&id=1');                                                                                                               
+        echo($count_pages);                                                                                                               
+}                                                                                                               
+                                                                                                               
+                                                                                                                  
+}                                                                                                               
 
 
 

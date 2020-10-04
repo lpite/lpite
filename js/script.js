@@ -15,7 +15,7 @@ const mini_cart = document.querySelector('.mini-cart');
 const mini_cart1 = document.querySelector('.mini-cart1');
 checkCart();
 showMiniCart();
-fullprice();
+
     
 window.onscroll = function () {
   myFunction()
@@ -180,21 +180,20 @@ Array.from(select).forEach(link => {
 
     link.addEventListener('change', function(){
 
-      let articul = this.getAttribute('id');
-    let value = document.getElementById(articul).value;
+      const articul = this.getAttribute('id');
+    const value = document.getElementById(articul).value;
     if (value == '...') {
- console.log(document.getElementById(articul + '.2'));
         document.getElementById(articul).classList.add('hidden');
         document.getElementById(articul + '.2').classList.remove('hidden');
-     
+        document.getElementById(articul + '.2').focus();
     }
     });
 });
 
 
-
+ let full_price = 0;
 function fullprice() {
-    let full_price = 0;
+   
     let price;
     let available;
     for (var w in cart) {
@@ -208,16 +207,15 @@ function fullprice() {
         }
       
       }
-
-
-
-
     }
    
    if (full_price_out && full_price != 0) {
 
-        full_price_out.innerHTML = full_price;
-   }
+        full_price_out.innerHTML = full_price.toFixed(1);
+        document.querySelector('.cart-btn').value=full_price.toFixed(1);
+
+           }
+           
    
 }
 
@@ -269,4 +267,3 @@ Array.from(orders).forEach(link => {
  
 
     });
-

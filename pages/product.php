@@ -1,10 +1,10 @@
 <?php
 
-if (!isset($_GET['id'])) {
-    $id_page = 1;
-} else {
-    $id_page = $_GET['id'];
-}
+// if (!isset($_GET['id'])) {
+//     $id_page = 1;
+// } else {
+//     $id_page = $_GET['id'];
+// }
 
 $products = R::find('tovar', '`id`= ? ', array($id_page));
 foreach ($products as  $product) {
@@ -54,11 +54,10 @@ foreach ($products as  $product) {
 
                   </div>
                 <div class="page-tovar-button-price-div">
-                    <div class="page-tovar-price-div"><span class="page-tovar-price">Цена: <?php echo $product['price'];
-
- if (!strpos($product['price'], '.')) {
-                 echo '.00';
-                } 
+                    <div class="page-tovar-price-div">
+                        <span class="page-tovar-price">Цена: 
+                            <?php 
+                            echo( calc_price($product['price']));
                      ?>грн</span>
                         <div class="page-tovar-buy-button-div">
                             <input data-id="<?php echo  $product['id']; ?>" type="submit" name="" class="page-tovar-buy-button buy-btn" value="Купить">
@@ -76,15 +75,15 @@ foreach ($products as  $product) {
                         </div>
                     </div>
                    
-<div>
+       <div style="padding: 25px;">
                         <table>
-                            <thead>
-                                характ
+                            <thead class="bottom-border">
+                                <tr class="bottom-border"><td> <span class="bottom-border">Характеристики</span></td></tr> 
                             </thead>
                             <tbody>
-                                <tr><td>Производ</td><td><?php echo $product['proizvod']; ?></td></tr>
-                                <tr><td>Аркт</td><td><?php echo $product['articyl']; ?></td></tr>       
-                                <tr><td>rfb</td><td><?php echo $product['id_kat']; ?></td></tr>
+                                <tr><td>Производитель</td><td><?php echo $product['proizvod']; ?></td></tr>
+                                <tr><td>Артикул</td><td><?php echo $product['articyl']; ?></td></tr>       
+                                <tr><td>Каталожный №</td><td><?php echo $product['id_kat']; ?></td></tr>
                             </tbody>
                         </table>
                     </div>

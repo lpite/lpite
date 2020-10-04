@@ -1,5 +1,19 @@
 <?php
 $route = $_GET['route'];
+if(isset($data['next'])){
+$test = [
+  'price' => "$data[next]"
+] ;
+$_SESSION['test'] = $test;
+
+if (isset($_SESSION['log_in'])) {
+ header('Location: /cart/checkout/');
+}else{
+  $error = ' '.'<a class="red" href="/login/"> Войдите в аккаунт </a>';
+}
+
+
+}
 
 ?>
 
@@ -35,7 +49,7 @@ $products = R::find('tovar','id = ?',array($key));
 foreach ($products as $product ) {
  
    prod_cart('cart');
-   $full_price += $product['price'] * $value;
+   $full_price +=  calc_price($product['price']) * $value;
 
 
 }
@@ -43,35 +57,38 @@ foreach ($products as $product ) {
 }
 
 ?>
- <div> <span>Итого </span><span class="full-price"></span> грн
+ <div 
+ style="
+ display: flex; 
+ justify-content: flex-start;
+align-items: center;
+padding: 5px;
+"
+  >
+  <form action="" method="post" style="margin: 2px;">
+    <button 
+    class="tovar-buy-button button cart-btn " 
+    name="next" 
+    value=""
+    >
+    <span>Заказать</span>
+  </button>
+  </form>
+   <span> Итого <span class="full-price"></span>0 грн <?php echo($error) ?></span>
   
 
-  <form action="/cart/checkout/" method="post">
-    <button class="tovar-buy-button button" name="next" value="<?php echo($full_price) ?>"><span>Заказать</span></button>
-  </form>
+
+  
+
   </div>
 <?php
 
 }elseif ($route === 'cart/checkout/') {
 
- if (!isset($_SESSION['log_in'])) {
-            
+
+         if (isset($_SESSION['log_in'])) {
+           # code...
          
-         ?>
-
-        <div>
-          <form name="email-phone-form" action="/cart/payment/"  method="post">
-            <input type="text" required class="registration-input" name="email_phone" placeholder="Введите почту или телефон">
-            <p>Коментарий</p>
-            <textarea name="comment" class="cart-comment"></textarea>
-            <div class="cart-button-div">
-              <button name="check" class="tovar-buy-button button">Далее</button>
-            </div>
-          </form>
-        </div>
-
-        <?php
-         }else{
           ?>
         <div>
           <form name="email-phone-form" action="/cart/payment/"  method="post">
@@ -83,9 +100,14 @@ foreach ($products as $product ) {
           </form>
         </div>
         <?php
-         }
+        
+}else{
+  
+}
 
 }elseif ($route === 'cart/payment/') {
+if (isset($_SESSION['log_in'])) {
+  # code...
 
 ?>
     <div>
@@ -122,9 +144,10 @@ foreach ($products as $product ) {
 
 
                         </div>
-                </div>
+                
          
             <?php
+            }
 }elseif ($route === 'cart/delivery/') {
 
     ?>
@@ -180,9 +203,9 @@ foreach ($delivery as $key => $value) {
                         <div class="order-div">
                           <div class="order">
                                    <table>
-                                          <tbody> 
-                                            <tr>
-                                              <b><a href="/product/&id=<?php echo($prod['id']) ?>" target="self"><?php echo $prod['name']; ?></a></b><br>
+                             <tbody> 
+                          <tr>
+                         <b><a href="/product/&id=<?php echo($prod['id']) ?>" target="self"><?php echo $prod['name']; ?></a></b><br>
             <table>
               <tbody>
                 <tr>
@@ -197,22 +220,15 @@ foreach ($delivery as $key => $value) {
                 </td>
               </tr>
               <tr>
-                <td><?php echo $prod['price'];
-                if (!strpos($prod['price'], '.')) {
-                 echo '.00';
-                } 
-                  
-                 ?></td>
+                <td>
+                  <?php 
+                 echo calc_price($prod['price'])
+                 ?>
+                   
+                 </td>
                 <td><?php echo $value; ?></td>
-                <td><?php
-                $full = $prod['price']*$value;
-                echo $prod['price']*$value;
-                 if (!strpos($full,'.')) {
-  echo '.00';
-}
-                 
-
-
+                <td><?php          
+                echo calc_price($prod['price'])*$value.'0'; 
                  ?></td>
               </tr>
               </tbody>
@@ -245,19 +261,29 @@ foreach ($delivery as $key => $value) {
 
                               ?>
                              </div>
-                         </div>
+                         
+                          <h2>
+                           Коментарий
+                         </h2>
+                         <span>
+                          <?php 
+                          echo $test['comment']; 
+                            ?> 
+                          </span>
                          <h2>
                            Сумма
                          </h2>
-                         <span><?php echo $test['price']; 
-                         if (!strpos($test['price'],'.')) {
-                                    echo '.00'; 
-}
-                                    ?> грн</span>
+                         <span>
+                          <?php 
+                          echo $test['price'].'0'; 
+                            ?> грн
+                          </span>
+                           
                          
-                          <form method="post">
+                          <form method="post" style="display: flex; justify-content: flex-start;align-items: center;">
 
                           <button class="button tovar-buy-button" name="last"><span>Оформить</span></button>
+                          <div class="category-margin"></div>
 <a href="/cart/">Редактировать</a>
                       </form>
                            <?php 
@@ -269,18 +295,20 @@ foreach ($delivery as $key => $value) {
                         echo(' Сумма ');
                         echo($info_order['price'].'грн');
                       }
-
-
-
 }
 }
 ?>
-  
+
+  </div>
+     </div>
      </div>
     </main>
   
         <?php include($__ROOT__."includes/footer.php")?>
-    
+    <script type="text/javascript">
+    fullprice();
+
+  </script>
 </div>
 
 </body>

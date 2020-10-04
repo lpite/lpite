@@ -15,13 +15,15 @@ switch ($m) {
    
 }
 
+
+
 if (!isset($_COOKIE['sort'])) {
     $products = R::find('tovar', '`category`= ? ORDER BY `name` LIMIT ?,?', array($category, $T, $products_on_page));
 } else {
     if ($_COOKIE['sort'] == 'a_z') {
         $products = R::find('tovar', '`category`= ? ORDER BY `name` LIMIT ?,?', array($category, $T, $products_on_page));
     } elseif ($_COOKIE['sort'] == 'z_a') {
-        $products = R::find('tovar', '`category`= ? ORDER BY `name` DESC LIMIT ?,?', array($category, $T, $products_on_page));
+        $products = R::find('tovar', '`category`= ? ORDER BY ? LIMIT ?,?', array($category,$sort, $T, $products_on_page));
     } elseif ($_COOKIE['sort'] == 'priceMax') {
         $products = R::find('tovar', '`category`= ? ORDER BY `price` LIMIT ?,?', array($category, $T, $products_on_page));
     } elseif ($_COOKIE['sort'] == 'priceMin') {
@@ -45,16 +47,25 @@ if (isset($_POST['select']) ? $_POST['select'] : 0) {
         $select = $_POST['select'];
         switch ($select) {
             case "a_z":
-                $products = R::find('tovar', '`category`= ? ORDER BY `name` LIMIT ?,?', array($category, $T, $products_on_page));
+            // $sort = 'name';
+            // $products = R::find('tovar', '`category`= ? ORDER BY ? LIMIT ?,?', array($category,$sort, $T, $products_on_page));
+                $products = R::find('tovar', '`category`= ? ORDER BY name ASC LIMIT ?,?', array($category, $T, $products_on_page));
                 break;
             case "z_a":
-                $products = R::find('tovar', '`category`= ? ORDER BY `name` DESC LIMIT ?,?', array($category, $T, $products_on_page));
+            $sort = 'name DESC';
+                // $products = R::find('tovar', '`category`= ? ORDER BY `name` DESC LIMIT ?,?', array($category, $T, $products_on_page));
+                $products = R::find('tovar', '`category`= ? ORDER BY ? LIMIT ?,?', array($category,$sort, $T, $products_on_page));
+                echo($sort);
                 break;
             case "priceMax":
-                $products = R::find('tovar', '`category`= ? ORDER BY `price` LIMIT ?,?', array($category, $T, $products_on_page));
+            $sort = 'price';
+            $products = R::find('tovar', '`category`= ? ORDER BY ? LIMIT ?,?', array($category,$sort, $T, $products_on_page));
+                // $products = R::find('tovar', '`category`= ? ORDER BY `price` LIMIT ?,?', array($category, $T, $products_on_page));
                 break;
             case "priceMin":
-                $products = R::find('tovar', '`category`= ? ORDER BY `price` DESC LIMIT ?,?', array($category, $T, $products_on_page));
+            $sort = 'price DESC';
+            $products = R::find('tovar', '`category`= ? ORDER BY ? LIMIT ?,?', array($category,$sort, $T, $products_on_page));
+                // $products = R::find('tovar', '`category`= ? ORDER BY `price` DESC LIMIT ?,?', array($category, $T, $products_on_page));
                 break;
         }
     }

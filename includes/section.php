@@ -2,7 +2,12 @@
 function prod_cart($type){
 	global $product,$full_price,$value;
 ?>
-<div class="tovar-div" id="<?php echo $product['id'].'.1' ?>" data-available="<?php echo($product['dostupnost']) ?>" data-price="<?php echo $product['price']?>">
+<div 
+class="tovar-div" 
+id="<?php echo $product['id'].'.1' ?>"
+ data-available="<?php echo($product['dostupnost']) ?>" 
+ data-price="<?php echo calc_price($product['price']).'0'?>">
+
   <div style="min-width: 300px">
     <div class="tovar-img-div">
       <a href="/product/&id=<?php echo $product['id']  ?>">
@@ -23,7 +28,7 @@ function prod_cart($type){
   </div>
 
   <div class="tovar-button-price">
-    <span class="tovar-price"><?php echo (sprintf('%0.1f',$product['price']/27*30).'0' ) ?>грн</span>
+    <span class="tovar-price"><?php echo calc_price($product['price']); ?>грн</span>
     <div class="category-margin"></div>
 
     <div class="category-margin"></div>
@@ -46,7 +51,13 @@ function prod_cart($type){
         <option value="10">10</option>
         <option value='...'>...</option>
       </select>
-      <input autofocus type="number" max="9999" min="1" required class="tovar-input hidden" id="<?php echo $product['id'] ?>.2">
+      <input 
+      autofocus 
+      type="number" 
+      max="9999" 
+      min="1" 
+      class="tovar-input hidden" 
+      id="<?php echo $product['id'] ?>.2">
     <?php
     } else {
     	?>
@@ -59,13 +70,18 @@ function prod_cart($type){
       min="1" max="1000" 
       class="" 
       value="<?php echo($value);?>" name="">
+
       <div class="category-margin"></div>
+      
        <button class="cart-delete button" data-id="<?php echo($product['id']);?>" >x</button>
     <?php
     }
 }else{
  ?>
+
       <span class="red">Нет в наличии</span>
+      <div class="category-margin"></div>
+      <button class="button tovar-buy-button">Уведомить</button>
     <?php
 }
     ?>

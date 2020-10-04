@@ -13,7 +13,6 @@ $name_page_arr = [
     'parts/' => 'Запчасти',
      'login/' => 'Войти',
      'registration/' => 'Регистрация',
-     'contacts/' => 'Контакты',
     'admin/' => 'Админ'
 ];
 
@@ -46,8 +45,6 @@ $phones =
 'cart/lastcheck/' => 'pages/cart.php',
 'login/' => 'pages/login.php',
 'registration/' => 'pages/registration.php',
-'contacts/' => 'pages/contacts.php',
-'sto/' =>'pages/STO.php',
 'product/' => 'pages/product.php',
 'admin/' => 'pages/admin/admin.php'
  ];
@@ -59,7 +56,8 @@ $phones =
 
 
  
-
+$old_curs = 27;
+$new_curs = 30;
   
   
 

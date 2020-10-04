@@ -1,7 +1,3 @@
-<?php
-
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +22,7 @@
         
             <div class="not-found-div" style="width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center;flex-direction: column;">
                 <h1 class="not-found">Страница не найдена</h1>
-              <span>*Нажмите что бы перейти на главную страницу</span>
+              <span>Нажмите что бы перейти на главную страницу</span>
             </div>
       
 

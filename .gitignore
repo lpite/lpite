@@ -3,4 +3,8 @@ img/
 pages/admin/
 .vscode
 /includes/connDB.php
+Apache-2.4_vhost.conf
+vendor/
+composer.json
+composer.lock
 

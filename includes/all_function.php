@@ -77,7 +77,8 @@ function sort_div(){
   <?php
 }
 
-function name_page_div(){
-echo('  <div class="name-page-div"><span class="name-page">'.$name_page.'</span></div>');
+function calc_price($price){
+  global $old_curs,$new_curs;
+  return sprintf('%0.1f',$price/$old_curs*$new_curs).'0';
 }
 ?>

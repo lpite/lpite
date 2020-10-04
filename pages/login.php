@@ -153,19 +153,14 @@ $login = $_SESSION['log_in'];
                 </td>
               </tr>
               <tr>
-                <td><?php echo $prod['price'];
-                if (!strpos($prod['price'], '.')) {
-                 echo '.00';
-                } 
+                <td><?php echo calc_price($prod['price']);
                   
                  ?></td>
                 <td><?php echo $value; ?></td>
                 <td><?php
-                $full = $prod['price']*$value;
-                echo $prod['price']*$value;
-                 if (!strpos($full,'.')) {
-  echo '.00';
-}
+                
+                echo calc_price($prod['price'])*$value.'0';
+
                  
 
 
